@@ -1,0 +1,10 @@
+# Permisos locales de Claude Code — específicos de esta máquina
+.claude/settings.local.json
+
+# Basura del sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Carpeta de trabajo del CLI de Netlify
+.netlify/

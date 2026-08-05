@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tierra Métrica — Valuación Inmobiliaria en Jalisco</title>
+<meta name="description" content="Avalúos comerciales, estudios de factibilidad y asesoría inmobiliaria independiente en Jalisco. Respaldo técnico de un Ingeniero Civil con Maestría en Valuación.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tierra Métrica — Valuación Inmobiliaria en Jalisco">
+<meta property="og:description" content="Conoce el valor real de tu patrimonio inmobiliario. Avalúos, factibilidad y asesoría sin conflicto de interés.">
+<meta property="og:locale" content="es_MX">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  /* ── HERO ── */
+  .hero {
+    background: var(--indigo-dark);
+    padding: 88px 5% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: -60px; right: -60px;
+    width: 420px; height: 420px; border-radius: 50%;
+    background: rgba(255,255,255,0.022); pointer-events: none;
+  }
+  .hero::after {
+    content: ''; position: absolute;
+    bottom: -100px; left: 30%;
+    width: 280px; height: 280px; border-radius: 50%;
+    background: rgba(88,158,120,0.10); pointer-events: none;
+  }
+  .hero-inner { max-width: var(--maxw); margin: 0 auto; position: relative; z-index: 1; }
+  .hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 400; color: var(--white);
+    line-height: 1.15; max-width: 640px;
+    margin-bottom: 20px; letter-spacing: -0.01em;
+  }
+  .hero-h1 em { font-style: italic; color: #8FC5A6; }
+  .hero-sub {
+    font-size: 16px; color: rgba(255,255,255,0.68);
+    max-width: 500px; line-height: 1.7; margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ── CARRUSEL DE ANÁLISIS ── */
+  .carousel-section { padding: 64px 5% 72px; background: var(--white); }
+  .carousel-head {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; gap: 24px;
+    margin-bottom: 28px; flex-wrap: wrap;
+  }
+  .carousel-head .section-title { margin-bottom: 6px; }
+  .carousel-head .section-sub { margin-bottom: 0; }
+  .carousel-controls { display: flex; align-items: center; gap: 8px; }
+  .car-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--white);
+    color: var(--indigo); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s, opacity .2s;
+  }
+  .car-btn:hover:not(:disabled) { background: var(--indigo-tint); border-color: var(--indigo); }
+  .car-btn:disabled { opacity: .3; cursor: default; }
+  .car-all {
+    font-size: 13px; font-weight: 500; color: var(--indigo);
+    text-decoration: none; margin-right: 8px; white-space: nowrap;
+  }
+  .car-all:hover { text-decoration: underline; }
+
+  .carousel-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 1fr);
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+  }
+  .carousel-track::-webkit-scrollbar { height: 5px; }
+  .carousel-track::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  .post-card {
+    scroll-snap-align: start;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(65,64,153,0.12); }
+
+  /* Banda superior: la cifra es la "portada" del artículo */
+  .post-figure {
+    padding: 24px 22px 20px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .post-figure.f-indigo { background: var(--indigo-tint); }
+  .post-figure.f-green  { background: var(--green-tint); }
+  .post-figure.f-slate  { background: var(--slate-tint); }
+  .post-stat {
+    font-family: var(--font-display);
+    font-size: 40px; line-height: 1;
+  }
+  .f-indigo .post-stat { color: var(--indigo); }
+  .f-green  .post-stat { color: var(--green-dark); }
+  .f-slate  .post-stat { color: var(--slate); }
+  .post-stat-label {
+    font-size: 12px; color: var(--text-muted);
+    line-height: 1.45; max-width: 210px;
+  }
+  .post-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+  .post-tag {
+    font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--text-faint); margin-bottom: 9px;
+  }
+  .post-title {
+    font-size: 16px; font-weight: 500; color: var(--indigo);
+    line-height: 1.35; margin-bottom: 9px;
+  }
+  .post-excerpt {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.65; flex: 1; margin-bottom: 16px;
+  }
+  .post-more {
+    font-size: 13px; font-weight: 500; color: var(--green-dark);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .post-card:hover .post-more { gap: 10px; }
+  .post-more svg { transition: transform .2s; }
+
+  /* ── SERVICIOS ── */
+  .services-bg { background: var(--cream); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .svc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(65,64,153,0.1); }
+  .svc-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .svc-name { font-size: 15px; font-weight: 500; color: var(--indigo); margin-bottom: 8px; line-height: 1.3; }
+  .svc-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── PERFIL ── */
+  .profile-grid { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
+  .profile-photo {
+    width: 100%; height: auto; border-radius: var(--radius-lg);
+    border: 1px solid var(--border); display: block;
+  }
+  .profile-name { font-family: var(--font-display); font-size: 26px; color: var(--indigo); margin-bottom: 4px; font-weight: 400; }
+  .profile-title {
+    font-size: 13px; color: var(--green-dark); font-weight: 500;
+    margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .profile-bio { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; max-width: 560px; }
+  .cred-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cred {
+    font-size: 12px; font-weight: 500;
+    background: var(--indigo-tint); color: var(--indigo);
+    padding: 5px 14px; border-radius: 20px;
+  }
+
+  /* ── PROCESO ── */
+  .proceso-bg { background: var(--cream); }
+  .steps-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; }
+  .steps-row::before {
+    content: ''; position: absolute;
+    top: 20px; left: calc(16.6% + 12px); right: calc(16.6% + 12px);
+    height: 1px; background: var(--border); pointer-events: none;
+  }
+  .step-circle {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--indigo); color: var(--white);
+    font-size: 14px; font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; position: relative; z-index: 1;
+  }
+  .step-name { font-size: 15px; font-weight: 500; color: var(--indigo); margin-bottom: 8px; }
+  .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .profile-grid { grid-template-columns: 1fr; gap: 28px; }
+    .profile-photo { max-width: 220px; }
+    .steps-row { grid-template-columns: 1fr; }
+    .steps-row::before { display: none; }
+    .carousel-track { grid-auto-columns: 82%; }
+    .carousel-controls .car-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Tierra Métrica — inicio">
+      <img src="assets/logo-mark.png" alt="" width="47" height="34" class="logo-mark">
+      <span class="logo-text">
+        <span class="logo-name">Tierra métrica</span>
+        <span class="logo-sub">Valuación</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="blog/index.html">Análisis</a></li>
+    </ul>
+    <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="nav-cta">Solicitar avalúo</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-h1">Conoce el valor <em>real</em> de tu patrimonio inmobiliario</h1>
+    <p class="hero-sub">Avalúos comerciales, estudios de factibilidad y asesoría en compraventa con respaldo técnico y objetividad profesional.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="btn-primary">Solicitar avalúo</a>
+      <a href="servicios.html" class="btn-outline">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- CARRUSEL DE ANÁLISIS -->
+<section class="carousel-section" id="analisis" aria-labelledby="analisis-h">
+  <div class="section-inner">
+    <div class="carousel-head">
+      <div>
+        <p class="section-eyebrow">Análisis</p>
+        <h2 class="section-title" id="analisis-h">Datos del mercado, explicados</h2>
+        <p class="section-sub">Estudios breves sobre el mercado inmobiliario de Jalisco, con cifras de fuentes oficiales.</p>
+      </div>
+      <div class="carousel-controls">
+        <a href="blog/index.html" class="car-all">Ver todos</a>
+        <button class="car-btn" id="carPrev" aria-label="Análisis anterior" aria-controls="blogTrack">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="car-btn" id="carNext" aria-label="Siguiente análisis" aria-controls="blogTrack">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="carousel-track" id="blogTrack" tabindex="0" role="group" aria-label="Artículos de análisis, desliza horizontalmente">
+
+      <a class="post-card" href="blog/zonas-plusvalia-zmg.html">
+        <div class="post-figure f-indigo">
+          <span class="post-stat">11.3%</span>
+          <span class="post-stat-label">apreciación anual de la vivienda en la ZMG durante 2025 — la más alta del país</span>
+        </div>
+        <div class="post-body">
+          <p class="post-tag">Plusvalía</p>
+          <p class="post-title">Las zonas con mayor plusvalía en la ZMG</p>
+          <p class="post-excerpt">Dónde se concentró realmente la apreciación en Guadalajara y Zapopan, y por qué el precio de lista no es lo mismo que la plusvalía.</p>
+          <span class="post-more">Leer análisis
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="post-card" href="blog/puerto-vallarta-vs-bahia-banderas.html">
+        <div class="post-figure f-green">
+          <span class="post-stat">1.6×</span>
+          <span class="post-stat-label">más vivienda instalada en Puerto Vallarta que en Bahía de Banderas</span>
+        </div>
+        <div class="post-body">
+          <p class="post-tag">Mercado costero</p>
+          <p class="post-title">Puerto Vallarta o Bahía de Banderas: ¿quién tiene más oferta?</p>
+          <p class="post-excerpt">Vallarta tiene el inventario grande; Bahía de Banderas crece más de tres veces más rápido. Las dos respuestas correctas dependen de qué estés buscando.</p>
+          <span class="post-more">Leer análisis
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="post-card" href="blog/zapopan-predial.html">
+        <div class="post-figure f-slate">
+          <span class="post-stat">$2,100M</span>
+          <span class="post-stat-label">recaudados por predial en Zapopan durante 2025, primer lugar nacional</span>
+        </div>
+        <div class="post-body">
+          <p class="post-tag">Fiscal</p>
+          <p class="post-title">Zapopan y su recaudación de predial</p>
+          <p class="post-excerpt">El municipio rompió la barrera de los dos mil millones. Qué significa esa cifra para el valor catastral de tu inmueble.</p>
+          <span class="post-more">Leer análisis
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section services-bg" id="servicios">
+  <div class="section-inner">
+    <p class="section-eyebrow">Servicios</p>
+    <h2 class="section-title">¿En qué te podemos ayudar?</h2>
+    <p class="section-sub">Servicios especializados para propietarios, compradores e inversionistas inmobiliarios en Jalisco.</p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--indigo-tint);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="10" width="5" height="8" rx="1" fill="#464991"/><rect x="7.5" y="6" width="5" height="12" rx="1" fill="#464991"/><rect x="13" y="2" width="5" height="16" rx="1" fill="#464991"/></svg>
+        </div>
+        <p class="svc-name">Avalúo comercial</p>
+        <p class="svc-desc">Valor de mercado fundamentado para casas, departamentos, locales y terrenos en Jalisco.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--green-tint);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L18 7V18H2V7L10 2Z" stroke="#426B53" stroke-width="1.5" fill="none"/><rect x="7" y="12" width="6" height="6" rx="1" fill="#426B53"/></svg>
+        </div>
+        <p class="svc-name">Avalúo de preventa</p>
+        <p class="svc-desc">Precio estratégico para nuevos desarrollos antes de salir al mercado.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--slate-tint);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 14l4-4 3 3 5-6" stroke="#5C5B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="2" width="16" height="16" rx="3" stroke="#5C5B5A" stroke-width="1.2" fill="none"/></svg>
+        </div>
+        <p class="svc-name">Estudio de factibilidad</p>
+        <p class="svc-desc">Análisis técnico-económico para evaluar la viabilidad de un proyecto inmobiliario.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--cream-dark);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8" cy="6" r="3.5" stroke="#5a5a5a" stroke-width="1.3"/><path d="M2 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#5a5a5a" stroke-width="1.3" stroke-linecap="round"/><path d="M14 9l2 2 3-3" stroke="#5a5a5a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="svc-name">Asesoría en compraventa</p>
+        <p class="svc-desc">Acompañamiento técnico para que tomes la mejor decisión al comprar o vender un inmueble.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section class="section" id="nosotros">
+  <div class="section-inner">
+    <p class="section-eyebrow">Quién está detrás</p>
+    <h2 class="section-title">Visión técnica con experiencia real</h2>
+    <div class="profile-grid" style="margin-top:36px;">
+      <img src="assets/hugo-landeros.jpg" alt="Retrato de Hugo A. Landeros Escamilla, fundador de Tierra Métrica" class="profile-photo" width="260" height="260" loading="lazy">
+      <div>
+        <p class="profile-name">Hugo A. Landeros Escamilla</p>
+        <p class="profile-title">Ingeniero Civil · Maestro en Valuación · Fundador</p>
+        <p class="profile-bio">Con experiencia auditando y evaluando más de 30 proyectos inmobiliarios en todo México, fundé Tierra Métrica con un objetivo claro: que cada cliente conozca el valor real de su patrimonio y tome decisiones informadas, sin importar si está vendiendo o comprando.</p>
+        <p class="profile-bio">Mi formación como Ingeniero Civil me permite evaluar no solo el valor de mercado, sino la calidad técnica del inmueble — un enfoque que va más allá del avalúo tradicional.</p>
+        <div class="cred-row">
+          <span class="cred">Ing. Civil</span>
+          <span class="cred">Maestría en valuación</span>
+          <span class="cred">+30 proyectos</span>
+          <span class="cred">Jalisco</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section proceso-bg" id="proceso">
+  <div class="section-inner">
+    <p class="section-eyebrow">Cómo trabajamos</p>
+    <h2 class="section-title">El proceso es simple</h2>
+    <p class="section-sub">Sin tecnicismos innecesarios. En tres pasos obtienes el valor de tu inmueble con respaldo técnico.</p>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-circle">1</div>
+        <p class="step-name">Contacto inicial</p>
+        <p class="step-desc">Cuéntanos sobre tu inmueble y el servicio que necesitas. Respondemos en menos de 24 horas.</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <p class="step-name">Visita e inspección</p>
+        <p class="step-desc">Realizamos la inspección física del inmueble y el análisis comparativo de mercado en la zona.</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <p class="step-name">Entrega del dictamen</p>
+        <p class="step-desc">Recibes un dictamen técnico claro, fundamentado y objetivo que puedes usar con total confianza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section cta-section" id="contacto">
+  <div class="section-inner">
+    <h2 class="cta-h">¿Listo para conocer el valor de tu inmueble?</h2>
+    <p class="cta-sub">Respuesta en menos de 24 horas. Sin compromiso.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="btn-primary">Escribir por WhatsApp</a>
+      <a href="mailto:hugo@tierrametrica.com" class="btn-outline">Enviar correo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Tierra Métrica · Valuación Inmobiliaria · Jalisco, México</span>
+    <div class="footer-links">
+      <a href="blog/index.html">Análisis</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="mailto:hugo@tierrametrica.com">hugo@tierrametrica.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

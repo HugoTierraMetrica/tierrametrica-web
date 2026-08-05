@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — Tierra Métrica Valuación</title>
+<meta name="description" content="Avalúos comerciales, de preventa, de terrenos y de mejoras; justipreciación de rentas, asesoría inmobiliaria, estudios de factibilidad y auditoría de obra en Jalisco.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Servicios — Tierra Métrica Valuación">
+<meta property="og:description" content="Once servicios de valuación, asesoría y desarrollo inmobiliario para propietarios, compradores e inversionistas en Jalisco.">
+<meta property="og:locale" content="es_MX">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  /* ── HERO INTERIOR ── */
+  .page-hero { background: var(--indigo-dark); padding: 64px 5% 60px; }
+  .page-hero-inner { max-width: var(--maxw); margin: 0 auto; }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400; color: var(--white);
+    line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em;
+  }
+  .page-hero p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.7; }
+
+  /* ── NAV DE CATEGORÍAS ── */
+  .cat-nav {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    position: sticky; top: 72px; z-index: 90;
+  }
+  .cat-nav-inner { max-width: var(--maxw); margin: 0 auto; display: flex; }
+  .cat-tab {
+    font-size: 13px; font-weight: 500; color: var(--text-muted);
+    padding: 16px 24px; border-bottom: 2px solid transparent;
+    cursor: pointer; text-decoration: none;
+    transition: color .2s, border-color .2s; white-space: nowrap;
+  }
+  .cat-tab:hover { color: var(--indigo); }
+  .cat-tab.active { color: var(--indigo); border-bottom-color: var(--indigo); }
+
+  /* ── SECCIONES ── */
+  .cat-section { padding: 72px 5%; border-bottom: 1px solid var(--border); }
+  .cat-section:last-of-type { border-bottom: none; }
+  .cat-section-inner { max-width: var(--maxw); margin: 0 auto; }
+  .cat-section.alt { background: var(--cream); }
+  .cat-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 48px; }
+  .cat-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .cat-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 400; color: var(--indigo);
+    line-height: 1.2; margin-bottom: 8px;
+  }
+  .cat-desc { font-size: 14px; color: var(--text-muted); max-width: 540px; line-height: 1.7; }
+
+  /* ── GRILLA DE SERVICIOS ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 26px 24px;
+    transition: transform .2s, box-shadow .2s;
+    display: flex; flex-direction: column;
+  }
+  .svc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(65,64,153,0.1); }
+  .svc-tag {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 3px 10px; border-radius: 20px;
+    margin-bottom: 14px; align-self: flex-start;
+  }
+  .svc-name { font-size: 16px; font-weight: 500; color: var(--indigo); margin-bottom: 10px; line-height: 1.3; }
+  .svc-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+  .svc-for {
+    font-size: 12px; font-weight: 500; color: var(--text-faint);
+    border-top: 1px solid var(--border); padding-top: 14px; margin-top: auto;
+  }
+  .svc-for span { color: var(--text-muted); font-weight: 400; }
+
+  /* ── COLORES POR CATEGORÍA (paleta del logo) ── */
+  .tag-valuacion  { background: var(--indigo-tint); color: var(--indigo); }
+  .tag-asesoria   { background: var(--green-tint);  color: var(--green-dark); }
+  .tag-desarrollo { background: var(--slate-tint);  color: var(--slate); }
+  .icon-valuacion  { background: var(--indigo-tint); }
+  .icon-asesoria   { background: var(--green-tint); }
+  .icon-desarrollo { background: var(--slate-tint); }
+
+  .cta-section { padding: 72px 5%; }
+  .cta-inner { max-width: 600px; margin: 0 auto; }
+
+  @media (max-width: 860px) {
+    .cat-nav { top: 72px; overflow-x: auto; }
+  }
+  @media (max-width: 768px) {
+    .cat-tab { padding: 14px 16px; }
+    .cat-header { flex-direction: column; gap: 12px; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Tierra Métrica — inicio">
+      <img src="assets/logo-mark.png" alt="" width="47" height="34" class="logo-mark">
+      <span class="logo-text">
+        <span class="logo-name">Tierra métrica</span>
+        <span class="logo-sub">Valuación</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="servicios.html" class="active" aria-current="page">Servicios</a></li>
+      <li><a href="index.html#nosotros">Nosotros</a></li>
+      <li><a href="index.html#proceso">Cómo trabajamos</a></li>
+      <li><a href="blog/index.html">Análisis</a></li>
+    </ul>
+    <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="nav-cta">Solicitar avalúo</a>
+  </div>
+</header>
+
+<!-- HERO INTERIOR -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Servicios de valuación<br>y asesoría inmobiliaria</h1>
+    <p>Tres áreas de especialidad para acompañarte en cada etapa de tu decisión inmobiliaria — desde determinar el valor de tu patrimonio hasta desarrollar un proyecto exitoso.</p>
+  </div>
+</section>
+
+<!-- NAV DE CATEGORÍAS -->
+<nav class="cat-nav" aria-label="Categorías de servicio">
+  <div class="cat-nav-inner">
+    <a href="#valuacion" class="cat-tab active">Valuación</a>
+    <a href="#asesoria" class="cat-tab">Asesoría</a>
+    <a href="#desarrollo" class="cat-tab">Desarrollo</a>
+  </div>
+</nav>
+
+<!-- CATEGORÍA 1: VALUACIÓN -->
+<section class="cat-section" id="valuacion">
+  <div class="cat-section-inner">
+    <div class="cat-header">
+      <div class="cat-icon icon-valuacion">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="12" width="5" height="9" rx="1.5" fill="#464991"/>
+          <rect x="9.5" y="7" width="5" height="14" rx="1.5" fill="#464991"/>
+          <rect x="16" y="3" width="5" height="18" rx="1.5" fill="#464991"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="cat-title">Valuación</h2>
+        <p class="cat-desc">Determinamos el valor de mercado de tu inmueble con metodología técnica rigurosa, respaldada por análisis comparativo, inspección física y conocimiento profundo del mercado en Jalisco.</p>
+      </div>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <span class="svc-tag tag-valuacion">Valuación</span>
+        <p class="svc-name">Avalúo comercial</p>
+        <p class="svc-desc">Determinación del valor de mercado de un inmueble mediante análisis comparativo de la zona, inspección física y aplicación de enfoques técnicos reconocidos. El documento tiene validez para transacciones de compraventa, trámites bancarios y legales.</p>
+        <p class="svc-for">Ideal para: <span>propietarios que desean vender, compradores que quieren verificar el precio, trámites notariales o bancarios.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-valuacion">Valuación</span>
+        <p class="svc-name">Avalúo de preventa</p>
+        <p class="svc-desc">Estudio de valor orientado a proyectos en desarrollo o preventa. Determina el precio de salida óptimo al mercado considerando el avance de obra, el entorno competitivo y la absorción esperada del producto.</p>
+        <p class="svc-for">Ideal para: <span>desarrolladores que van a lanzar un proyecto al mercado y necesitan definir su estrategia de precios.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-valuacion">Valuación</span>
+        <p class="svc-name">Avalúo de terrenos</p>
+        <p class="svc-desc">Incluye tres modalidades según el propósito: avalúo comercial (valor actual del terreno), mayor y mejor uso (determina el uso más rentable del suelo) y residual (calcula el valor del terreno a partir del proyecto que puede soportar).</p>
+        <p class="svc-for">Ideal para: <span>propietarios de terrenos, compradores o inversionistas que evalúan la viabilidad de un sitio.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-valuacion">Valuación</span>
+        <p class="svc-name">Justipreciación de rentas</p>
+        <p class="svc-desc">Determinación técnica del valor justo de renta de un inmueble conforme a las condiciones actuales del mercado. Evita fijar rentas por debajo o encima del valor real, protegiendo los intereses de arrendador y arrendatario.</p>
+        <p class="svc-for">Ideal para: <span>propietarios que rentarán su inmueble, empresas que negocian contratos de arrendamiento.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-valuacion">Valuación</span>
+        <p class="svc-name">Avalúo de mejoras</p>
+        <p class="svc-desc">Cuantificación del valor de las construcciones, instalaciones o adaptaciones realizadas sobre un inmueble. Útil para segregar el valor del terreno del valor construido, o para negociaciones donde las mejoras son el objeto de la transacción.</p>
+        <p class="svc-for">Ideal para: <span>arrendatarios con mejoras propias, socios que liquidan una sociedad, trámites de seguros.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-valuacion">Valuación</span>
+        <p class="svc-name">Opinión de valor</p>
+        <p class="svc-desc">Estimación técnica del valor de mercado basada en análisis de mercado y experiencia profesional, sin el rigor formal de un avalúo certificado. Entrega más ágil y a menor costo, ideal cuando se necesita una referencia confiable para tomar decisiones.</p>
+        <p class="svc-for">Ideal para: <span>quienes necesitan una referencia rápida de valor antes de negociar o decidir si contratar un avalúo formal.</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORÍA 2: ASESORÍA -->
+<section class="cat-section alt" id="asesoria">
+  <div class="cat-section-inner">
+    <div class="cat-header">
+      <div class="cat-icon icon-asesoria">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="9" cy="7" r="4" stroke="#426B53" stroke-width="1.5"/>
+          <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#426B53" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M17 10l2 2 4-4" stroke="#426B53" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="cat-title">Asesoría</h2>
+        <p class="cat-desc">Acompañamiento técnico e independiente para que tomes la mejor decisión en tu transacción inmobiliaria. Sin conflicto de interés — nuestra única lealtad es hacia ti como cliente.</p>
+      </div>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <span class="svc-tag tag-asesoria">Asesoría</span>
+        <p class="svc-name">Asesoría inmobiliaria</p>
+        <p class="svc-desc">Orientación técnica integral para quienes enfrentan una decisión inmobiliaria compleja: ¿conviene comprar o rentar?, ¿es buen momento para vender?, ¿el precio que me ofrecen es justo? Análisis objetivo sin interés en la comisión de la transacción.</p>
+        <p class="svc-for">Ideal para: <span>cualquier persona o empresa que necesita una segunda opinión técnica antes de tomar una decisión inmobiliaria importante.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-asesoria">Asesoría</span>
+        <p class="svc-name">Representación de comprador</p>
+        <p class="svc-desc">Acompañamiento técnico durante todo el proceso de compra: análisis del inmueble, revisión del precio versus mercado, identificación de riesgos físicos o legales visibles, y apoyo en la negociación. El comprador tiene un experto de su lado.</p>
+        <p class="svc-for">Ideal para: <span>personas que compran su primera casa, compradores que no viven en Jalisco, o quienes desconfían de la información del vendedor.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-asesoria">Asesoría</span>
+        <p class="svc-name">Estrategia de venta</p>
+        <p class="svc-desc">Definición del precio óptimo de salida, análisis del momento de mercado, recomendaciones de presentación del inmueble y estrategia de negociación. El objetivo es maximizar el valor obtenido en el menor tiempo posible.</p>
+        <p class="svc-for">Ideal para: <span>propietarios que quieren vender con certeza de que su precio es competitivo y su estrategia es la correcta.</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORÍA 3: DESARROLLO -->
+<section class="cat-section" id="desarrollo">
+  <div class="cat-section-inner">
+    <div class="cat-header">
+      <div class="cat-icon icon-desarrollo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="3" width="20" height="18" rx="2" stroke="#5C5B5A" stroke-width="1.5" fill="none"/>
+          <path d="M2 9h20" stroke="#5C5B5A" stroke-width="1.5"/>
+          <path d="M8 3v6M16 3v6" stroke="#5C5B5A" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M7 14l3 3 5-5" stroke="#5C5B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="cat-title">Desarrollo inmobiliario</h2>
+        <p class="cat-desc">Análisis técnico especializado para proyectos inmobiliarios en etapa de planeación o ejecución. Respaldo profesional para inversionistas, desarrolladores y empresas que necesitan certeza antes de comprometer capital.</p>
+      </div>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <span class="svc-tag tag-desarrollo">Desarrollo</span>
+        <p class="svc-name">Estudio de factibilidad de proyecto inmobiliario</p>
+        <p class="svc-desc">Análisis integral que evalúa la viabilidad técnica, de mercado y financiera de un proyecto inmobiliario. Incluye estudio de mercado, análisis del producto propuesto, proyección de absorción, estimación de ingresos y evaluación de rentabilidad.</p>
+        <p class="svc-for">Ideal para: <span>inversionistas que evalúan adquirir un terreno para desarrollar, desarrolladores en etapa de planeación, socios que buscan validar un proyecto ante un banco o fondo.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-desarrollo">Desarrollo</span>
+        <p class="svc-name">Auditoría de obra</p>
+        <p class="svc-desc">Revisión técnica independiente del avance físico de una obra respecto al programa y presupuesto establecidos. Verifica que los recursos invertidos correspondan al avance real, detecta desviaciones y emite recomendaciones. Esencial para inversionistas que financian proyectos de terceros.</p>
+        <p class="svc-for">Ideal para: <span>inversionistas privados, fondos o socios que aportan capital a un desarrollo y necesitan verificar independientemente el avance de obra.</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-h">¿No sabes cuál servicio necesitas?</h2>
+    <p class="cta-sub">Cuéntanos tu situación y te orientamos sin costo. En menos de 24 horas sabrás exactamente qué herramienta es la correcta para tu caso.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/523330284101?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20qu%C3%A9%20servicio%20necesito." class="btn-primary">Consultar por WhatsApp</a>
+      <a href="mailto:hugo@tierrametrica.com" class="btn-outline">Enviar correo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Tierra Métrica · Valuación Inmobiliaria · Jalisco, México</span>
+    <div class="footer-links">
+      <a href="blog/index.html">Análisis</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="mailto:hugo@tierrametrica.com">hugo@tierrametrica.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

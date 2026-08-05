@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis de mercado — Tierra Métrica</title>
+<meta name="description" content="Estudios breves sobre el mercado inmobiliario de Jalisco: plusvalía en la ZMG, mercado costero de Vallarta y Bahía de Banderas, y recaudación de predial en Zapopan.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Análisis de mercado — Tierra Métrica">
+<meta property="og:description" content="Datos del mercado inmobiliario de Jalisco, explicados con cifras de fuentes oficiales.">
+<meta property="og:locale" content="es_MX">
+<link rel="icon" href="../assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .page-hero { background: var(--indigo-dark); padding: 56px 5% 56px; }
+  .page-hero-inner { max-width: var(--maxw); margin: 0 auto; }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 400; color: var(--white);
+    line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em;
+  }
+  .page-hero p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.7; }
+
+  .post-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(65,64,153,0.12); }
+  .post-figure { padding: 24px 22px 20px; display: flex; flex-direction: column; gap: 4px; }
+  .post-figure.f-indigo { background: var(--indigo-tint); }
+  .post-figure.f-green  { background: var(--green-tint); }
+  .post-figure.f-slate  { background: var(--slate-tint); }
+  .post-stat { font-family: var(--font-display); font-size: 40px; line-height: 1; }
+  .f-indigo .post-stat { color: var(--indigo); }
+  .f-green  .post-stat { color: var(--green-dark); }
+  .f-slate  .post-stat { color: var(--slate); }
+  .post-stat-label { font-size: 12px; color: var(--text-muted); line-height: 1.45; max-width: 210px; }
+  .post-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+  .post-tag {
+    font-size: 10px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.09em; color: var(--text-faint); margin-bottom: 9px;
+  }
+  .post-title { font-size: 16px; font-weight: 500; color: var(--indigo); line-height: 1.35; margin-bottom: 9px; }
+  .post-excerpt { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; margin-bottom: 16px; }
+  .post-more {
+    font-size: 13px; font-weight: 500; color: var(--green-dark);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .post-card:hover .post-more { gap: 10px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Tierra Métrica — inicio">
+      <img src="../assets/logo-mark.png" alt="" width="47" height="34" class="logo-mark">
+      <span class="logo-text">
+        <span class="logo-name">Tierra métrica</span>
+        <span class="logo-sub">Valuación</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../servicios.html">Servicios</a></li>
+      <li><a href="../index.html#nosotros">Nosotros</a></li>
+      <li><a href="../index.html#proceso">Cómo trabajamos</a></li>
+      <li><a href="index.html" class="active" aria-current="page">Análisis</a></li>
+    </ul>
+    <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="nav-cta">Solicitar avalúo</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Análisis de mercado</h1>
+    <p>Estudios breves sobre el mercado inmobiliario de Jalisco, construidos con cifras de fuentes oficiales y leídos desde la perspectiva de la valuación.</p>
+  </div>
+</section>
+
+<!-- LISTADO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="blog-grid">
+
+      <a class="post-card" href="zonas-plusvalia-zmg.html">
+        <div class="post-figure f-indigo">
+          <span class="post-stat">11.3%</span>
+          <span class="post-stat-label">apreciación anual de la vivienda en la ZMG durante 2025 — la más alta del país</span>
+        </div>
+        <div class="post-body">
+          <p class="post-tag">Plusvalía</p>
+          <p class="post-title">Las zonas con mayor plusvalía en la ZMG</p>
+          <p class="post-excerpt">Dónde se concentró realmente la apreciación en Guadalajara y Zapopan, y por qué el precio de lista no es lo mismo que la plusvalía.</p>
+          <span class="post-more">Leer análisis
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="post-card" href="puerto-vallarta-vs-bahia-banderas.html">
+        <div class="post-figure f-green">
+          <span class="post-stat">1.6×</span>
+          <span class="post-stat-label">más vivienda instalada en Puerto Vallarta que en Bahía de Banderas</span>
+        </div>
+        <div class="post-body">
+          <p class="post-tag">Mercado costero</p>
+          <p class="post-title">Puerto Vallarta o Bahía de Banderas: ¿quién tiene más oferta?</p>
+          <p class="post-excerpt">Vallarta tiene el inventario grande; Bahía de Banderas crece más de tres veces más rápido. Las dos respuestas correctas dependen de qué estés buscando.</p>
+          <span class="post-more">Leer análisis
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="post-card" href="zapopan-predial.html">
+        <div class="post-figure f-slate">
+          <span class="post-stat">$2,100M</span>
+          <span class="post-stat-label">recaudados por predial en Zapopan durante 2025, primer lugar nacional</span>
+        </div>
+        <div class="post-body">
+          <p class="post-tag">Fiscal</p>
+          <p class="post-title">Zapopan y su recaudación de predial</p>
+          <p class="post-excerpt">El municipio rompió la barrera de los dos mil millones. Qué significa esa cifra para el valor catastral de tu inmueble.</p>
+          <span class="post-more">Leer análisis
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section cta-section">
+  <div class="section-inner">
+    <h2 class="cta-h">¿Tienes una duda que estos análisis no resuelven?</h2>
+    <p class="cta-sub">Cuéntanos tu caso. Respuesta en menos de 24 horas, sin compromiso.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/523330284101?text=Hola%2C%20tengo%20una%20duda%20sobre%20el%20mercado%20inmobiliario." class="btn-primary">Escribir por WhatsApp</a>
+      <a href="mailto:hugo@tierrametrica.com" class="btn-outline">Enviar correo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Tierra Métrica · Valuación Inmobiliaria · Jalisco, México</span>
+    <div class="footer-links">
+      <a href="index.html">Análisis</a>
+      <a href="../servicios.html">Servicios</a>
+      <a href="mailto:hugo@tierrametrica.com">hugo@tierrametrica.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

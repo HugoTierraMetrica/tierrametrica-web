@@ -1,0 +1,28 @@
+# Tierra Métrica — configuración de despliegue en Netlify
+# Sitio estático sin build: se publica la raíz tal cual.
+
+[build]
+  publish = "."
+
+# ── Cabeceras de seguridad para todo el sitio ──
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# ── Imágenes: nombres estables, se pueden cachear con agresividad ──
+[[headers]]
+  for = "/assets/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/assets/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# OJO: styles.css y site.js NO llevan hash en el nombre, así que aquí no se
+# pone cache larga a propósito — se dejan los valores por defecto de Netlify
+# (ETag + revalidación) para que un cambio de CSS se vea en el siguiente deploy.
