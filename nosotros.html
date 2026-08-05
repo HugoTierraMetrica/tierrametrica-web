@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quién está detrás — Tierra Métrica</title>
+<meta name="description" content="Hugo A. Landeros Escamilla, Ingeniero Civil por el Tecnológico de Monterrey y Maestro en Valuación por la Universidad de Guadalajara. Miembro de CIVAJAL. Más de 30 desarrollos inmobiliarios evaluados en México.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Quién está detrás de Tierra Métrica">
+<meta property="og:description" content="Ingeniero Civil y Maestro en Valuación, con más de 30 desarrollos inmobiliarios auditados en distintas ciudades de México.">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://tierrametrica.com/nosotros.html">
+<meta property="og:image" content="https://tierrametrica.com/assets/share/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://tierrametrica.com/nosotros.html">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .page-hero { background: var(--indigo-dark); padding: 56px 5% 56px; }
+  .page-hero-inner { max-width: var(--maxw); margin: 0 auto; }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 400; color: var(--white);
+    line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em;
+  }
+  .page-hero p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 600px; line-height: 1.7; }
+
+  /* ── Perfil ── */
+  .perfil { display: grid; grid-template-columns: 280px 1fr; gap: 52px; align-items: start; }
+  .perfil-foto {
+    width: 100%; height: auto; border-radius: var(--radius-lg);
+    border: 1px solid var(--border); display: block;
+  }
+  .perfil-nombre {
+    font-family: var(--font-display); font-size: 30px;
+    color: var(--indigo); margin-bottom: 6px; font-weight: 400; line-height: 1.2;
+  }
+  .perfil-rol {
+    font-size: 13px; color: var(--green-dark); font-weight: 500;
+    margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .perfil-lugar { font-size: 13px; color: var(--text-faint); margin-bottom: 24px; }
+  .perfil p.bio { font-size: 16px; color: #333; line-height: 1.8; margin-bottom: 20px; }
+  .cred-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+  .cred {
+    font-size: 12px; font-weight: 500;
+    background: var(--indigo-tint); color: var(--indigo);
+    padding: 6px 14px; border-radius: 20px;
+  }
+
+  /* ── Trayectoria ── */
+  .trayectoria { border-left: 2px solid var(--border); padding-left: 30px; margin-top: 8px; }
+  .puesto { position: relative; padding-bottom: 36px; }
+  .puesto:last-child { padding-bottom: 0; }
+  .puesto::before {
+    content: ''; position: absolute;
+    left: -37px; top: 5px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--white); border: 2px solid var(--indigo);
+  }
+  .puesto.actual::before { background: var(--indigo); }
+  .puesto-fecha {
+    font-size: 12px; color: var(--text-faint);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;
+  }
+  .puesto-cargo { font-size: 17px; font-weight: 600; color: var(--indigo); line-height: 1.35; margin-bottom: 2px; }
+  .puesto-org { font-size: 14px; color: var(--green-dark); font-weight: 500; margin-bottom: 10px; }
+  .puesto-desc { font-size: 14.5px; color: var(--text-muted); line-height: 1.75; max-width: 620px; }
+
+  /* ── Formación ── */
+  .form-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px; margin-top: 8px;
+  }
+  .form-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 26px 24px;
+  }
+  .form-tipo {
+    font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.09em; color: var(--green-dark); margin-bottom: 12px;
+  }
+  .form-titulo { font-size: 16px; font-weight: 600; color: var(--indigo); margin-bottom: 5px; line-height: 1.35; }
+  .form-inst { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; }
+  .form-anios { font-size: 12.5px; color: var(--text-faint); font-variant-numeric: tabular-nums; }
+
+  /* ── Enfoque ── */
+  .enfoque-lista { list-style: none; padding: 0; margin-top: 8px; display: grid; gap: 2px; }
+  .enfoque-lista li {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+    font-size: 15px; line-height: 1.7;
+  }
+  .enfoque-lista li:last-child { border-bottom: none; }
+  .enfoque-lista strong { color: var(--indigo); font-weight: 600; }
+  .enfoque-lista span.txt { color: var(--text-muted); }
+  .enfoque-num {
+    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--indigo-tint); color: var(--indigo);
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .perfil { grid-template-columns: 1fr; gap: 28px; }
+    .perfil-foto { max-width: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Tierra Métrica — inicio">
+      <img src="assets/logo-mark.png" alt="" width="47" height="34" class="logo-mark">
+      <span class="logo-text">
+        <span class="logo-name">Tierra métrica</span>
+        <span class="logo-sub">Valuación</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="nosotros.html" class="active" aria-current="page">Nosotros</a></li>
+      <li><a href="index.html#proceso">Cómo trabajamos</a></li>
+      <li><a href="blog/index.html">Análisis</a></li>
+    </ul>
+    <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="nav-cta">Solicitar avalúo</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Quién está detrás</h1>
+    <p>Tierra Métrica es hoy una práctica independiente. Cuando contratas un avalúo o un estudio, sabes exactamente quién lo firma y con qué respaldo técnico.</p>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section class="section">
+  <div class="section-inner">
+    <div class="perfil">
+      <img src="assets/hugo-landeros.jpg" alt="Retrato de Hugo A. Landeros Escamilla, fundador de Tierra Métrica" class="perfil-foto" width="280" height="280">
+      <div>
+        <p class="perfil-nombre">Hugo A. Landeros Escamilla</p>
+        <p class="perfil-rol">Ingeniero Civil · Maestro en Valuación · Fundador</p>
+        <p class="perfil-lugar">Guadalajara, Jalisco, México</p>
+
+        <p class="bio">Acompaño a inversionistas privados, desarrolladores y profesionales del patrimonio —notarios, abogados y contadores— en las decisiones inmobiliarias que más pesan: comprar, vender, desarrollar o potenciar un activo.</p>
+
+        <p class="bio">He evaluado más de 30 desarrollos inmobiliarios en distintas ciudades de México como auditor de proyectos. Esa experiencia me mostró algo que se repite: hay decisiones patrimoniales muy importantes que se toman sin el análisis técnico que merecen. Tierra Métrica nace para llenar ese espacio.</p>
+
+        <p class="bio">Mi formación como Ingeniero Civil me permite evaluar no solo el valor de mercado, sino la calidad técnica del inmueble. Para el cliente, el valor real no está en el dictamen firmado, sino en la objetividad de la información que lo sustenta.</p>
+
+        <div class="cred-row">
+          <span class="cred">Ing. Civil</span>
+          <span class="cred">Maestría en Valuación</span>
+          <span class="cred">Miembro de CIVAJAL</span>
+          <span class="cred">+30 desarrollos evaluados</span>
+          <span class="cred">Inglés profesional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Trayectoria</p>
+    <h2 class="section-title">Diez años entre la ingeniería y la valuación</h2>
+    <p class="section-sub">De la ingeniería hidráulica a la evaluación de proyectos inmobiliarios y la valuación independiente.</p>
+
+    <div class="trayectoria">
+
+      <div class="puesto actual">
+        <p class="puesto-fecha">Desde mayo de 2026 · Jalisco</p>
+        <p class="puesto-cargo">Fundador</p>
+        <p class="puesto-org">Tierra Métrica</p>
+        <p class="puesto-desc">Consultoría técnica inmobiliaria enfocada en operaciones privadas. Avalúos comerciales, due diligence de adquisición, estudios de factibilidad, análisis de mayor y mejor uso y auditoría de obra, siempre con análisis técnico independiente.</p>
+      </div>
+
+      <div class="puesto actual">
+        <p class="puesto-fecha">Desde julio de 2021 · Guadalajara</p>
+        <p class="puesto-cargo">Director de análisis de proyectos inmobiliarios</p>
+        <p class="puesto-org">TREESTATE</p>
+        <p class="puesto-desc">Esquema de certificación <em>Trust Real Estate Evaluation</em>, que evalúa desarrollos inmobiliarios para dar certeza a compradores, inversionistas y proveedores sobre su viabilidad, seguridad y sostenibilidad comercial.</p>
+      </div>
+
+      <div class="puesto">
+        <p class="puesto-fecha">Diciembre de 2016 – julio de 2021 · Zapopan</p>
+        <p class="puesto-cargo">Ingeniero jefe de proyectos</p>
+        <p class="puesto-org">PHHS Ingeniería, S.A. de C.V.</p>
+        <p class="puesto-desc">Firma de consultoría en ingeniería de recursos hidráulicos, hidráulica urbana, hidrología y saneamiento. Coordinación y supervisión de proyectos de agua potable, alcantarillado, colectores, acueductos y manejo de escurrimientos pluviales.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMACIÓN -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Formación y colegiación</p>
+    <h2 class="section-title">Respaldo académico y gremial</h2>
+
+    <div class="form-grid">
+      <div class="form-card">
+        <p class="form-tipo">Posgrado</p>
+        <p class="form-titulo">Maestría en Valuación</p>
+        <p class="form-inst">Universidad de Guadalajara</p>
+        <p class="form-anios">2020 – 2021</p>
+      </div>
+      <div class="form-card">
+        <p class="form-tipo">Licenciatura</p>
+        <p class="form-titulo">Ingeniero Civil</p>
+        <p class="form-inst">Tecnológico de Monterrey</p>
+        <p class="form-anios">2012 – 2016</p>
+      </div>
+      <div class="form-card">
+        <p class="form-tipo">Colegiación</p>
+        <p class="form-titulo">Miembro de CIVAJAL</p>
+        <p class="form-inst">Colegio e Instituto de Valuadores de Jalisco, A.C.</p>
+        <p class="form-anios">Colegio acreditado ante la Dirección de Profesiones del Estado de Jalisco</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENFOQUE -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Cómo trabajo</p>
+    <h2 class="section-title">Cinco herramientas, un mismo criterio</h2>
+    <p class="section-sub">Trabajo principalmente en la Zona Metropolitana de Guadalajara, y atiendo proyectos en otras ciudades cuando la operación lo justifica.</p>
+
+    <ol class="enfoque-lista">
+      <li><span class="enfoque-num">1</span><span class="txt"><strong>Avalúos comerciales.</strong> Para compraventa, división patrimonial, sucesiones o negociación.</span></li>
+      <li><span class="enfoque-num">2</span><span class="txt"><strong>Due diligence de adquisición.</strong> Análisis técnico, documental y de mercado antes de comprar.</span></li>
+      <li><span class="enfoque-num">3</span><span class="txt"><strong>Análisis de mayor y mejor uso.</strong> Para terrenos o propiedades subutilizadas.</span></li>
+      <li><span class="enfoque-num">4</span><span class="txt"><strong>Estudios de factibilidad.</strong> Para evaluar la viabilidad de un proyecto inmobiliario antes de comprometer capital.</span></li>
+      <li><span class="enfoque-num">5</span><span class="txt"><strong>Auditoría de obra.</strong> Supervisión técnica del avance físico contra el financiero.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section cta-section">
+  <div class="section-inner">
+    <h2 class="cta-h">¿Hablamos de tu caso?</h2>
+    <p class="cta-sub">Cuéntame tu situación y te digo con franqueza qué necesitas. Respuesta en menos de 24 horas.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/523330284101?text=Hola%20Hugo%2C%20vi%20tu%20perfil%20en%20el%20sitio%20y%20quisiera%20consultarte%20un%20caso." class="btn-primary">Escribir por WhatsApp</a>
+      <a href="https://www.linkedin.com/in/hugolanderos/" class="btn-outline" target="_blank" rel="noopener">Ver perfil en LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Tierra Métrica · Valuación Inmobiliaria · Jalisco, México</span>
+    <div class="footer-links">
+      <a href="blog/index.html">Análisis</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="mailto:hugo@tierrametrica.com">hugo@tierrametrica.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

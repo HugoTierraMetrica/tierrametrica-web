@@ -44,6 +44,10 @@
 
 html { scroll-behavior: smooth; }
 
+/* La barra de navegación es fija: sin este margen, al saltar a un ancla
+   el encabezado de destino queda escondido debajo de ella. */
+section[id], [id^="analisis"] { scroll-margin-top: 88px; }
+
 body {
   font-family: var(--font-body);
   color: var(--text);
