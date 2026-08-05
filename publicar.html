@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publicar en LinkedIn — Tierra Métrica</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .page-hero { background: var(--indigo-dark); padding: 48px 5% 48px; }
+  .page-hero-inner { max-width: var(--maxw); margin: 0 auto; }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400; color: var(--white);
+    line-height: 1.15; margin-bottom: 12px;
+  }
+  .page-hero p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 620px; line-height: 1.7; }
+
+  .steps {
+    background: var(--indigo-tint);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px; margin-bottom: 36px;
+    font-size: 14px; color: var(--indigo); line-height: 1.7;
+  }
+  .steps ol { margin: 8px 0 0 18px; }
+
+  .pub { border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 24px; overflow: hidden; }
+  .pub-head {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 22px 24px; background: var(--cream);
+    border-bottom: 1px solid var(--border); flex-wrap: wrap;
+  }
+  .pub-thumb {
+    width: 190px; height: auto; border-radius: 8px;
+    border: 1px solid var(--border); display: block; flex-shrink: 0;
+  }
+  .pub-meta { flex: 1; min-width: 240px; }
+  .pub-title { font-size: 17px; font-weight: 600; color: var(--indigo); margin-bottom: 6px; line-height: 1.35; }
+  .pub-url { font-size: 12.5px; color: var(--text-muted); word-break: break-all; }
+  .pub-body { padding: 22px 24px; }
+  .pub-text {
+    width: 100%; min-height: 300px;
+    font-family: var(--font-body); font-size: 14px;
+    line-height: 1.7; color: var(--text);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 16px; resize: vertical; background: var(--white);
+  }
+  .pub-text:focus { outline: 2px solid var(--indigo); outline-offset: 1px; }
+  .pub-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .btn-sm {
+    font-family: var(--font-body); font-size: 13.5px; font-weight: 500;
+    padding: 10px 18px; border-radius: var(--radius);
+    cursor: pointer; text-decoration: none; display: inline-block;
+    border: 1px solid transparent; transition: background .2s, border-color .2s;
+  }
+  .btn-copy { background: var(--indigo); color: var(--white); }
+  .btn-copy:hover { background: var(--indigo-mid); }
+  .btn-li { background: var(--green-dark); color: var(--white); }
+  .btn-li:hover { background: var(--green-darker); }
+  .btn-ghost { background: transparent; color: var(--text-muted); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--indigo); color: var(--indigo); }
+  .counter { font-size: 12.5px; color: var(--text-faint); margin-left: auto; font-variant-numeric: tabular-nums; }
+  .counter.over { color: #a3341f; font-weight: 600; }
+
+  .status { font-size: 14px; color: var(--text-muted); padding: 20px 0; }
+  .error {
+    background: #FBEDE9; border-left: 3px solid #a3341f;
+    padding: 18px 20px; border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 14px; line-height: 1.7; color: #6b2415;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Tierra Métrica — inicio">
+      <img src="assets/logo-mark.png" alt="" width="47" height="34" class="logo-mark">
+      <span class="logo-text">
+        <span class="logo-name">Tierra métrica</span>
+        <span class="logo-sub">Valuación</span>
+      </span>
+    </a>
+    <a href="blog/index.html" class="nav-cta">Ver el blog</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Publicar en LinkedIn</h1>
+    <p>Herramienta interna. Cada artículo del blog tiene aquí su publicación ya redactada, lista para copiar y pegar en LinkedIn con el enlace y la imagen de vista previa correctos.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+
+    <div class="steps">
+      <strong>Cómo funciona</strong>
+      <ol>
+        <li>Revisa el texto y edítalo aquí mismo si quieres ajustarlo.</li>
+        <li>Pulsa <em>Copiar texto</em>.</li>
+        <li>Pulsa <em>Abrir LinkedIn</em> — se abre el compositor con el enlace ya adjunto.</li>
+        <li>Pega el texto y publica.</li>
+      </ol>
+      <p style="margin-top:10px;font-size:13px;">LinkedIn dejó de permitir que el texto se rellene desde un enlace, así que ese paso es manual por fuerza. Los cambios que hagas aquí no se guardan: para que queden fijos, hay que editarlos en <code>contenido/linkedin/</code>.</p>
+    </div>
+
+    <div id="lista"><p class="status">Cargando publicaciones…</p></div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Tierra Métrica · Herramienta interna</span>
+    <div class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="blog/index.html">Análisis</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // Los borradores viven en contenido/linkedin/. Para añadir uno nuevo,
+  // crea el .md y agrega su nombre aquí.
+  var SLUGS = [
+    'zonas-plusvalia-zmg',
+    'puerto-vallarta-vs-bahia-banderas',
+    'zapopan-predial'
+  ];
+
+  var LIMITE = 3000; // tope de caracteres de una publicación de LinkedIn
+  var lista = document.getElementById('lista');
+
+  // Separa el bloque de metadatos --- --- del cuerpo del post
+  function parse(texto) {
+    var m = texto.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+    if (!m) return { meta: {}, cuerpo: texto.trim() };
+    var meta = {};
+    m[1].split('\n').forEach(function (linea) {
+      var i = linea.indexOf(':');
+      if (i > 0) meta[linea.slice(0, i).trim()] = linea.slice(i + 1).trim();
+    });
+    return { meta: meta, cuerpo: m[2].trim() };
+  }
+
+  function tarjeta(slug, datos) {
+    var meta = datos.meta;
+    var art = document.createElement('article');
+    art.className = 'pub';
+
+    var head = document.createElement('div');
+    head.className = 'pub-head';
+    if (meta.imagen) {
+      var img = document.createElement('img');
+      img.className = 'pub-thumb';
+      // La miniatura se sirve desde el mismo sitio: así se ve tanto en local
+      // como en producción, sin depender de que el dominio ya esté publicado.
+      img.src = meta.imagen.replace(/^https?:\/\/[^/]+\//, '');
+      img.alt = 'Vista previa de ' + (meta.titulo || slug);
+      img.loading = 'lazy';
+      head.appendChild(img);
+    }
+    var info = document.createElement('div');
+    info.className = 'pub-meta';
+    var h = document.createElement('p');
+    h.className = 'pub-title';
+    h.textContent = meta.titulo || slug;
+    var u = document.createElement('p');
+    u.className = 'pub-url';
+    u.textContent = meta.url || '';
+    info.appendChild(h); info.appendChild(u);
+    head.appendChild(info);
+
+    var body = document.createElement('div');
+    body.className = 'pub-body';
+
+    var ta = document.createElement('textarea');
+    ta.className = 'pub-text';
+    ta.value = datos.cuerpo;
+    ta.setAttribute('aria-label', 'Texto de la publicación: ' + (meta.titulo || slug));
+
+    var acciones = document.createElement('div');
+    acciones.className = 'pub-actions';
+
+    var copiar = document.createElement('button');
+    copiar.className = 'btn-sm btn-copy';
+    copiar.type = 'button';
+    copiar.textContent = 'Copiar texto';
+    copiar.addEventListener('click', function () {
+      var listo = function () {
+        copiar.textContent = '✓ Copiado';
+        setTimeout(function () { copiar.textContent = 'Copiar texto'; }, 2000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(listo, function () { ta.select(); });
+      } else {
+        // Respaldo para navegadores sin API de portapapeles
+        ta.select(); document.execCommand('copy'); listo();
+      }
+    });
+
+    var li = document.createElement('a');
+    li.className = 'btn-sm btn-li';
+    li.textContent = 'Abrir LinkedIn';
+    li.target = '_blank';
+    li.rel = 'noopener';
+    li.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(meta.url || '');
+
+    var ver = document.createElement('a');
+    ver.className = 'btn-sm btn-ghost';
+    ver.textContent = 'Ver artículo';
+    ver.target = '_blank';
+    ver.rel = 'noopener';
+    ver.href = meta.url || '#';
+
+    var cont = document.createElement('span');
+    cont.className = 'counter';
+    var actualizar = function () {
+      var n = ta.value.length;
+      cont.textContent = n.toLocaleString('es-MX') + ' / ' + LIMITE.toLocaleString('es-MX');
+      cont.classList.toggle('over', n > LIMITE);
+    };
+    ta.addEventListener('input', actualizar);
+    actualizar();
+
+    acciones.appendChild(copiar);
+    acciones.appendChild(li);
+    acciones.appendChild(ver);
+    acciones.appendChild(cont);
+
+    body.appendChild(ta);
+    body.appendChild(acciones);
+    art.appendChild(head);
+    art.appendChild(body);
+    return art;
+  }
+
+  Promise.all(SLUGS.map(function (slug) {
+    return fetch('contenido/linkedin/' + slug + '.md')
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status + ' en ' + slug);
+        return r.text();
+      })
+      .then(function (t) { return { slug: slug, datos: parse(t) }; });
+  })).then(function (todos) {
+    lista.innerHTML = '';
+    todos.forEach(function (x) { lista.appendChild(tarjeta(x.slug, x.datos)); });
+  }).catch(function (err) {
+    lista.innerHTML = '';
+    var d = document.createElement('div');
+    d.className = 'error';
+    d.innerHTML = '<strong>No se pudieron cargar los borradores.</strong><br>' +
+      'Si abriste este archivo con doble clic desde el disco, es lo esperado: ' +
+      'el navegador bloquea la lectura de archivos locales por seguridad. ' +
+      'Esta página funciona en el sitio publicado, en ' +
+      '<code>https://tierrametrica.com/publicar.html</code>.<br><br>' +
+      '<span style="opacity:.75">Detalle técnico: ' + String(err.message) + '</span>';
+    lista.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
