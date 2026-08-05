@@ -37,7 +37,7 @@
     content: ''; position: absolute;
     bottom: -100px; left: 30%;
     width: 280px; height: 280px; border-radius: 50%;
-    background: rgba(88,158,120,0.10); pointer-events: none;
+    background: rgba(94,152,119,0.10); pointer-events: none;
   }
   .hero-inner { max-width: var(--maxw); margin: 0 auto; position: relative; z-index: 1; }
   .hero-h1 {
@@ -54,16 +54,28 @@
   }
   .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
-  /* ── CARRUSEL DE ANÁLISIS ── */
-  .carousel-section { padding: 64px 5% 72px; background: var(--white); }
-  .carousel-head {
+  /* ══ ANÁLISIS ══ */
+  .analisis {
+    padding: 72px 5% 76px;
+    background:
+      radial-gradient(900px 380px at 12% -10%, rgba(70,73,145,0.07), transparent 65%),
+      radial-gradient(700px 340px at 92% 8%, rgba(94,152,119,0.09), transparent 62%),
+      var(--white);
+  }
+  .analisis-head {
     display: flex; align-items: flex-end;
     justify-content: space-between; gap: 24px;
-    margin-bottom: 28px; flex-wrap: wrap;
+    margin-bottom: 30px; flex-wrap: wrap;
   }
-  .carousel-head .section-title { margin-bottom: 6px; }
-  .carousel-head .section-sub { margin-bottom: 0; }
-  .carousel-controls { display: flex; align-items: center; gap: 8px; }
+  .analisis-head .section-title { margin-bottom: 6px; }
+  .analisis-head .section-sub { margin-bottom: 0; }
+
+  .car-controls { display: flex; align-items: center; gap: 8px; }
+  .car-all {
+    font-size: 13px; font-weight: 500; color: var(--indigo);
+    text-decoration: none; margin-right: 6px; white-space: nowrap;
+  }
+  .car-all:hover { text-decoration: underline; }
   .car-btn {
     width: 38px; height: 38px; border-radius: 50%;
     border: 1px solid var(--border); background: var(--white);
@@ -73,26 +85,44 @@
   }
   .car-btn:hover:not(:disabled) { background: var(--indigo-tint); border-color: var(--indigo); }
   .car-btn:disabled { opacity: .3; cursor: default; }
-  .car-all {
-    font-size: 13px; font-weight: 500; color: var(--indigo);
-    text-decoration: none; margin-right: 8px; white-space: nowrap;
-  }
-  .car-all:hover { text-decoration: underline; }
 
-  .carousel-track {
+  .car-track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(280px, 1fr);
+    grid-auto-columns: minmax(290px, 1fr);
     gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding-bottom: 6px;
-    scrollbar-width: thin;
+    padding: 4px 4px 8px;
+    margin: -4px -4px 0;
+    scrollbar-width: none;
   }
-  .carousel-track::-webkit-scrollbar { height: 5px; }
-  .carousel-track::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .car-track::-webkit-scrollbar { display: none; }
 
+  /* Indicadores y control de reproducción */
+  .car-foot {
+    display: flex; align-items: center; gap: 14px;
+    margin-top: 22px;
+  }
+  .car-dots { display: flex; gap: 7px; }
+  .car-dot {
+    width: 7px; height: 7px; padding: 0;
+    border-radius: 50%; border: none;
+    background: rgba(0,0,0,0.16); cursor: pointer;
+    transition: background .25s, width .25s, border-radius .25s;
+  }
+  .car-dot[aria-current="true"] { background: var(--indigo); width: 22px; border-radius: 4px; }
+  .car-play {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: transparent; border: 1px solid var(--border);
+    border-radius: 20px; padding: 5px 13px 5px 10px;
+    font-family: var(--font-body); font-size: 12px; color: var(--text-muted);
+    cursor: pointer; margin-left: auto; transition: border-color .2s, color .2s;
+  }
+  .car-play:hover { border-color: var(--indigo); color: var(--indigo); }
+
+  /* ── Tarjeta de artículo ── */
   .post-card {
     scroll-snap-align: start;
     background: var(--white);
@@ -101,37 +131,74 @@
     overflow: hidden;
     display: flex; flex-direction: column;
     text-decoration: none; color: inherit;
-    transition: transform .2s, box-shadow .2s;
+    position: relative;
+    transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s, border-color .28s;
   }
-  .post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(65,64,153,0.12); }
+  .post-card::after {
+    content: ''; position: absolute; inset: 0;
+    border-radius: var(--radius-lg); pointer-events: none;
+    box-shadow: inset 0 0 0 2px transparent; transition: box-shadow .28s;
+  }
+  .post-card:hover, .post-card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 44px rgba(70,73,145,0.16);
+    border-color: transparent;
+  }
+  .post-card:hover::after { box-shadow: inset 0 0 0 2px var(--indigo-tint); }
 
-  /* Banda superior: la cifra es la "portada" del artículo */
+  /* Entrada escalonada al aparecer en pantalla */
+  .reveal { opacity: 0; transform: translateY(18px); }
+  .reveal.visible {
+    opacity: 1; transform: none;
+    transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.3,1);
+  }
+
   .post-figure {
-    padding: 24px 22px 20px;
+    padding: 22px 22px 18px;
     display: flex; flex-direction: column; gap: 4px;
+    position: relative; overflow: hidden;
   }
   .post-figure.f-indigo { background: var(--indigo-tint); }
   .post-figure.f-green  { background: var(--green-tint); }
   .post-figure.f-slate  { background: var(--slate-tint); }
+
+  /* Miniatura del gráfico: se anima al pasar el cursor */
+  .post-spark {
+    position: absolute; right: 16px; bottom: 14px;
+    opacity: .5; transition: opacity .3s, transform .35s cubic-bezier(.2,.7,.3,1);
+    transform-origin: bottom right;
+  }
+  .post-card:hover .post-spark { opacity: .95; transform: scale(1.08); }
+  .post-spark rect, .post-spark path { transition: none; }
+
   .post-stat {
     font-family: var(--font-display);
-    font-size: 40px; line-height: 1;
+    font-size: 42px; line-height: 1; position: relative; z-index: 1;
   }
   .f-indigo .post-stat { color: var(--indigo); }
   .f-green  .post-stat { color: var(--green-dark); }
   .f-slate  .post-stat { color: var(--slate); }
   .post-stat-label {
     font-size: 12px; color: var(--text-muted);
-    line-height: 1.45; max-width: 210px;
+    line-height: 1.45; max-width: 190px; position: relative; z-index: 1;
   }
-  .post-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+
+  .post-body { padding: 18px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+  .post-meta {
+    display: flex; align-items: center; gap: 9px;
+    margin-bottom: 10px; flex-wrap: wrap;
+  }
   .post-tag {
-    font-size: 10px; font-weight: 500;
+    font-size: 10px; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.09em;
-    color: var(--text-faint); margin-bottom: 9px;
+    padding: 3px 9px; border-radius: 20px;
   }
+  .f-indigo ~ .post-body .post-tag { background: var(--indigo-tint); color: var(--indigo); }
+  .f-green  ~ .post-body .post-tag { background: var(--green-tint);  color: var(--green-dark); }
+  .f-slate  ~ .post-body .post-tag { background: var(--slate-tint);  color: var(--slate); }
+  .post-fecha { font-size: 11.5px; color: var(--text-faint); }
   .post-title {
-    font-size: 16px; font-weight: 500; color: var(--indigo);
+    font-size: 16.5px; font-weight: 500; color: var(--indigo);
     line-height: 1.35; margin-bottom: 9px;
   }
   .post-excerpt {
@@ -141,9 +208,39 @@
   .post-more {
     font-size: 13px; font-weight: 500; color: var(--green-dark);
     display: inline-flex; align-items: center; gap: 6px;
+    transition: gap .25s;
   }
-  .post-card:hover .post-more { gap: 10px; }
-  .post-more svg { transition: transform .2s; }
+  .post-card:hover .post-more { gap: 11px; }
+
+  /* ══ SUSCRIPCIÓN ══ */
+  .suscribe { background: var(--indigo-dark); padding: 60px 5%; }
+  .suscribe-inner {
+    max-width: 860px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 40px; align-items: center;
+  }
+  .suscribe h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(24px, 3vw, 31px); color: var(--white);
+    line-height: 1.25; margin-bottom: 10px;
+  }
+  .suscribe p { font-size: 14.5px; color: rgba(255,255,255,0.62); line-height: 1.7; }
+  .suscribe-form { display: flex; gap: 10px; flex-wrap: wrap; }
+  .suscribe-form input[type="email"] {
+    flex: 1; min-width: 200px;
+    font-family: var(--font-body); font-size: 14.5px;
+    padding: 13px 16px; border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.07); color: var(--white);
+  }
+  .suscribe-form input[type="email"]::placeholder { color: rgba(255,255,255,0.42); }
+  .suscribe-form input[type="email"]:focus {
+    outline: 2px solid var(--green); outline-offset: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+  .suscribe-nota { font-size: 11.5px; color: rgba(255,255,255,0.42); margin-top: 12px; line-height: 1.6; }
+  .suscribe-nota a { color: rgba(255,255,255,0.68); }
+  .oculto { position: absolute; left: -9999px; }
 
   /* ── SERVICIOS ── */
   .services-bg { background: var(--cream); }
@@ -159,7 +256,7 @@
     padding: 28px 24px;
     transition: transform .2s, box-shadow .2s;
   }
-  .svc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(65,64,153,0.1); }
+  .svc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(70,73,145,0.1); }
   .svc-icon {
     width: 44px; height: 44px; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
@@ -167,25 +264,6 @@
   }
   .svc-name { font-size: 15px; font-weight: 500; color: var(--indigo); margin-bottom: 8px; line-height: 1.3; }
   .svc-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-
-  /* ── PERFIL ── */
-  .profile-grid { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
-  .profile-photo {
-    width: 100%; height: auto; border-radius: var(--radius-lg);
-    border: 1px solid var(--border); display: block;
-  }
-  .profile-name { font-family: var(--font-display); font-size: 26px; color: var(--indigo); margin-bottom: 4px; font-weight: 400; }
-  .profile-title {
-    font-size: 13px; color: var(--green-dark); font-weight: 500;
-    margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em;
-  }
-  .profile-bio { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; max-width: 560px; }
-  .cred-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .cred {
-    font-size: 12px; font-weight: 500;
-    background: var(--indigo-tint); color: var(--indigo);
-    padding: 5px 14px; border-radius: 20px;
-  }
 
   /* ── PROCESO ── */
   .proceso-bg { background: var(--cream); }
@@ -205,13 +283,45 @@
   .step-name { font-size: 15px; font-weight: 500; color: var(--indigo); margin-bottom: 8px; }
   .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
+  /* ══ REDES ══ */
+  .redes { padding: 60px 5%; background: var(--cream); border-top: 1px solid var(--border); }
+  .redes-inner { max-width: var(--maxw); margin: 0 auto; text-align: center; }
+  .redes h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(22px, 2.8vw, 28px); color: var(--indigo); margin-bottom: 8px;
+  }
+  .redes p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 28px; }
+  .redes-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .red {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 22px; border-radius: var(--radius);
+    background: var(--white); border: 1px solid var(--border);
+    color: var(--indigo); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: transform .2s, box-shadow .2s, color .2s, border-color .2s;
+  }
+  .red:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(70,73,145,0.12); }
+  .red svg { flex-shrink: 0; }
+  .red-li:hover { color: #0A66C2; border-color: #0A66C2; }
+  .red-fb:hover { color: #1877F2; border-color: #1877F2; }
+  .red-ig:hover { color: #C13584; border-color: #C13584; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .suscribe-inner { grid-template-columns: 1fr; gap: 26px; }
+  }
   @media (max-width: 768px) {
-    .profile-grid { grid-template-columns: 1fr; gap: 28px; }
-    .profile-photo { max-width: 220px; }
     .steps-row { grid-template-columns: 1fr; }
     .steps-row::before { display: none; }
-    .carousel-track { grid-auto-columns: 82%; }
-    .carousel-controls .car-btn { display: none; }
+    .car-track { grid-auto-columns: 84%; }
+    .car-controls .car-btn { display: none; }
+  }
+
+  /* Quien prefiere menos movimiento no recibe ni animaciones ni avance solo */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal.visible { opacity: 1; transform: none; transition: none; }
+    .post-card, .post-spark, .svc-card, .red { transition: none; }
+    .car-track { scroll-behavior: auto; }
   }
 </style>
 </head>
@@ -252,16 +362,16 @@
   </div>
 </section>
 
-<!-- CARRUSEL DE ANÁLISIS -->
-<section class="carousel-section" id="analisis" aria-labelledby="analisis-h">
+<!-- ANÁLISIS -->
+<section class="analisis" id="analisis" aria-labelledby="analisis-h">
   <div class="section-inner">
-    <div class="carousel-head">
+    <div class="analisis-head">
       <div>
         <p class="section-eyebrow">Análisis</p>
         <h2 class="section-title" id="analisis-h">Datos del mercado, explicados</h2>
         <p class="section-sub">Estudios breves sobre el mercado inmobiliario de Jalisco, con cifras de fuentes oficiales.</p>
       </div>
-      <div class="carousel-controls">
+      <div class="car-controls">
         <a href="blog/index.html" class="car-all">Ver todos</a>
         <button class="car-btn" id="carPrev" aria-label="Análisis anterior" aria-controls="blogTrack">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -272,15 +382,25 @@
       </div>
     </div>
 
-    <div class="carousel-track" id="blogTrack" tabindex="0" role="group" aria-label="Artículos de análisis, desliza horizontalmente">
+    <div class="car-track" id="blogTrack" tabindex="0" role="group" aria-label="Artículos de análisis, desliza horizontalmente">
 
-      <a class="post-card" href="blog/zonas-plusvalia-zmg.html">
+      <a class="post-card reveal" href="blog/zonas-plusvalia-zmg.html">
         <div class="post-figure f-indigo">
           <span class="post-stat">11.3%</span>
           <span class="post-stat-label">apreciación anual de la vivienda en la ZMG durante 2025 — la más alta del país</span>
+          <svg class="post-spark" width="76" height="42" viewBox="0 0 76 42" aria-hidden="true">
+            <rect x="0"  y="30" width="11" height="12" rx="2.5" fill="#464991" opacity=".35"/>
+            <rect x="16" y="24" width="11" height="18" rx="2.5" fill="#464991" opacity=".5"/>
+            <rect x="32" y="16" width="11" height="26" rx="2.5" fill="#464991" opacity=".68"/>
+            <rect x="48" y="8"  width="11" height="34" rx="2.5" fill="#464991" opacity=".84"/>
+            <rect x="64" y="0"  width="11" height="42" rx="2.5" fill="#464991"/>
+          </svg>
         </div>
         <div class="post-body">
-          <p class="post-tag">Plusvalía</p>
+          <div class="post-meta">
+            <span class="post-tag">Plusvalía</span>
+            <time class="post-fecha" datetime="2026-08-04">4 de agosto de 2026</time>
+          </div>
           <p class="post-title">Las zonas con mayor plusvalía en la ZMG</p>
           <p class="post-excerpt">Dónde se concentró realmente la apreciación en Guadalajara y Zapopan, y por qué el precio de lista no es lo mismo que la plusvalía.</p>
           <span class="post-more">Leer análisis
@@ -289,13 +409,20 @@
         </div>
       </a>
 
-      <a class="post-card" href="blog/puerto-vallarta-vs-bahia-banderas.html">
+      <a class="post-card reveal" href="blog/puerto-vallarta-vs-bahia-banderas.html">
         <div class="post-figure f-green">
           <span class="post-stat">1.6×</span>
           <span class="post-stat-label">más vivienda instalada en Puerto Vallarta que en Bahía de Banderas</span>
+          <svg class="post-spark" width="76" height="42" viewBox="0 0 76 42" aria-hidden="true">
+            <rect x="0" y="4"  width="76" height="15" rx="4" fill="#5E9877"/>
+            <rect x="0" y="25" width="47" height="15" rx="4" fill="#5E9877" opacity=".45"/>
+          </svg>
         </div>
         <div class="post-body">
-          <p class="post-tag">Mercado costero</p>
+          <div class="post-meta">
+            <span class="post-tag">Mercado costero</span>
+            <time class="post-fecha" datetime="2026-08-04">4 de agosto de 2026</time>
+          </div>
           <p class="post-title">Puerto Vallarta o Bahía de Banderas: ¿quién tiene más oferta?</p>
           <p class="post-excerpt">Vallarta tiene el inventario grande; Bahía de Banderas crece más de tres veces más rápido. Las dos respuestas correctas dependen de qué estés buscando.</p>
           <span class="post-more">Leer análisis
@@ -304,13 +431,20 @@
         </div>
       </a>
 
-      <a class="post-card" href="blog/zapopan-predial.html">
+      <a class="post-card reveal" href="blog/zapopan-predial.html">
         <div class="post-figure f-slate">
           <span class="post-stat">$2,100M</span>
           <span class="post-stat-label">recaudados por predial en Zapopan durante 2025, primer lugar nacional</span>
+          <svg class="post-spark" width="76" height="42" viewBox="0 0 76 42" aria-hidden="true">
+            <path d="M2 38 L26 27 L50 12 L74 4" stroke="#5C5B5A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="74" cy="4" r="4" fill="#5C5B5A"/>
+          </svg>
         </div>
         <div class="post-body">
-          <p class="post-tag">Fiscal</p>
+          <div class="post-meta">
+            <span class="post-tag">Fiscal</span>
+            <time class="post-fecha" datetime="2026-08-04">4 de agosto de 2026</time>
+          </div>
           <p class="post-title">Zapopan y su recaudación de predial</p>
           <p class="post-excerpt">El municipio rompió la barrera de los dos mil millones. Qué significa esa cifra para el valor catastral de tu inmueble.</p>
           <span class="post-more">Leer análisis
@@ -319,6 +453,38 @@
         </div>
       </a>
 
+    </div>
+
+    <div class="car-foot">
+      <div class="car-dots" id="carDots" role="tablist" aria-label="Ir a un análisis"></div>
+      <button class="car-play" id="carPlay" aria-label="Pausar el avance automático">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="carPlayIcon">
+          <rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>
+        </svg>
+        <span id="carPlayTxt">Pausar</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SUSCRIPCIÓN -->
+<section class="suscribe" aria-labelledby="suscribe-h">
+  <div class="suscribe-inner">
+    <div>
+      <h2 id="suscribe-h">Recibe cada análisis en tu correo</h2>
+      <p>Cuando publicamos un estudio nuevo sobre el mercado de Jalisco, te llega directo. Sin más frecuencia que la de los artículos, y te puedes dar de baja cuando quieras.</p>
+    </div>
+    <div>
+      <form name="suscripcion" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/gracias.html" class="suscribe-form">
+        <input type="hidden" name="form-name" value="suscripcion">
+        <p class="oculto">
+          <label>No llenes este campo si eres humano: <input name="bot-field"></label>
+        </p>
+        <label for="correo" class="oculto">Tu correo electrónico</label>
+        <input type="email" id="correo" name="correo" required placeholder="tu@correo.com" autocomplete="email">
+        <button type="submit" class="btn-primary">Suscribirme</button>
+      </form>
+      <p class="suscribe-nota">Solo usamos tu correo para enviarte los análisis. Consulta el <a href="aviso-privacidad.html">aviso de privacidad</a>.</p>
     </div>
   </div>
 </section>
@@ -362,34 +528,6 @@
   </div>
 </section>
 
-<!-- PERFIL -->
-<section class="section" id="nosotros">
-  <div class="section-inner">
-    <p class="section-eyebrow">Quién está detrás</p>
-    <h2 class="section-title">Visión técnica con experiencia real</h2>
-    <div class="profile-grid" style="margin-top:36px;">
-      <img src="assets/hugo-landeros.jpg" alt="Retrato de Hugo A. Landeros Escamilla, fundador de Tierra Métrica" class="profile-photo" width="260" height="260" loading="lazy">
-      <div>
-        <p class="profile-name">Hugo A. Landeros Escamilla</p>
-        <p class="profile-title">Ingeniero Civil · Maestro en Valuación · Fundador</p>
-        <p class="profile-bio">Con experiencia auditando y evaluando más de 30 proyectos inmobiliarios en todo México, fundé Tierra Métrica con un objetivo claro: que cada cliente conozca el valor real de su patrimonio y tome decisiones informadas, sin importar si está vendiendo o comprando.</p>
-        <p class="profile-bio">Mi formación como Ingeniero Civil me permite evaluar no solo el valor de mercado, sino la calidad técnica del inmueble — un enfoque que va más allá del avalúo tradicional.</p>
-        <div class="cred-row">
-          <span class="cred">Ing. Civil</span>
-          <span class="cred">Maestría en Valuación</span>
-          <span class="cred">Miembro de CIVAJAL</span>
-          <span class="cred">+30 desarrollos evaluados</span>
-        </div>
-        <p style="margin-top:22px;">
-          <a href="nosotros.html" style="font-size:14px;font-weight:500;color:var(--green-dark);text-decoration:none;">
-            Ver trayectoria y formación completas →
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PROCESO -->
 <section class="section proceso-bg" id="proceso">
   <div class="section-inner">
@@ -428,6 +566,25 @@
   </div>
 </section>
 
+<!-- REDES -->
+<section class="redes" aria-labelledby="redes-h">
+  <div class="redes-inner">
+    <h2 id="redes-h">Síguenos</h2>
+    <p>Publicamos análisis y notas del mercado inmobiliario de Jalisco.</p>
+    <div class="redes-links">
+      <a href="https://www.linkedin.com/in/hugolanderos/" class="red red-li" target="_blank" rel="noopener">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+        </svg>
+        LinkedIn
+      </a>
+      <!-- Facebook e Instagram: falta la dirección de cada perfil de la empresa.
+           En cuanto se tengan, se añaden aquí con las clases .red .red-fb y .red .red-ig
+           (los estilos y los iconos de hover ya están listos en el CSS de arriba). -->
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -435,6 +592,8 @@
     <div class="footer-links">
       <a href="blog/index.html">Análisis</a>
       <a href="servicios.html">Servicios</a>
+      <a href="aviso-privacidad.html">Aviso de privacidad</a>
+      <a href="condiciones-uso.html">Condiciones de uso</a>
       <a href="mailto:hugo@tierrametrica.com">hugo@tierrametrica.com</a>
     </div>
   </div>

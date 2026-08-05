@@ -53,8 +53,10 @@
   .post-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
   .post-tag {
     font-size: 10px; font-weight: 500; text-transform: uppercase;
-    letter-spacing: 0.09em; color: var(--text-faint); margin-bottom: 9px;
+    letter-spacing: 0.09em; color: var(--text-faint);
   }
+  .post-meta { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; flex-wrap: wrap; }
+  .post-fecha { font-size: 11.5px; color: var(--text-faint); }
   .post-title { font-size: 16px; font-weight: 500; color: var(--indigo); line-height: 1.35; margin-bottom: 9px; }
   .post-excerpt { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; margin-bottom: 16px; }
   .post-more {
@@ -108,7 +110,7 @@
           <span class="post-stat-label">apreciación anual de la vivienda en la ZMG durante 2025 — la más alta del país</span>
         </div>
         <div class="post-body">
-          <p class="post-tag">Plusvalía</p>
+          <div class="post-meta"><span class="post-tag">Plusvalía</span><time class="post-fecha" datetime="2026-08-04">4 de agosto de 2026</time></div>
           <p class="post-title">Las zonas con mayor plusvalía en la ZMG</p>
           <p class="post-excerpt">Dónde se concentró realmente la apreciación en Guadalajara y Zapopan, y por qué el precio de lista no es lo mismo que la plusvalía.</p>
           <span class="post-more">Leer análisis
@@ -123,7 +125,7 @@
           <span class="post-stat-label">más vivienda instalada en Puerto Vallarta que en Bahía de Banderas</span>
         </div>
         <div class="post-body">
-          <p class="post-tag">Mercado costero</p>
+          <div class="post-meta"><span class="post-tag">Mercado costero</span><time class="post-fecha" datetime="2026-08-04">4 de agosto de 2026</time></div>
           <p class="post-title">Puerto Vallarta o Bahía de Banderas: ¿quién tiene más oferta?</p>
           <p class="post-excerpt">Vallarta tiene el inventario grande; Bahía de Banderas crece más de tres veces más rápido. Las dos respuestas correctas dependen de qué estés buscando.</p>
           <span class="post-more">Leer análisis
@@ -138,7 +140,7 @@
           <span class="post-stat-label">recaudados por predial en Zapopan durante 2025, primer lugar nacional</span>
         </div>
         <div class="post-body">
-          <p class="post-tag">Fiscal</p>
+          <div class="post-meta"><span class="post-tag">Fiscal</span><time class="post-fecha" datetime="2026-08-04">4 de agosto de 2026</time></div>
           <p class="post-title">Zapopan y su recaudación de predial</p>
           <p class="post-excerpt">El municipio rompió la barrera de los dos mil millones. Qué significa esa cifra para el valor catastral de tu inmueble.</p>
           <span class="post-more">Leer análisis
@@ -170,6 +172,8 @@
     <div class="footer-links">
       <a href="index.html">Análisis</a>
       <a href="../servicios.html">Servicios</a>
+      <a href="../aviso-privacidad.html">Aviso de privacidad</a>
+      <a href="../condiciones-uso.html">Condiciones de uso</a>
       <a href="mailto:hugo@tierrametrica.com">hugo@tierrametrica.com</a>
     </div>
   </div>
