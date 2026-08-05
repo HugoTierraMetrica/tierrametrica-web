@@ -36,10 +36,24 @@
     width: 100%; height: auto; border-radius: var(--radius-lg);
     border: 1px solid var(--border); display: block;
   }
+  .perfil-encabezado {
+    display: flex; align-items: center; gap: 14px;
+    flex-wrap: wrap; margin-bottom: 6px;
+  }
   .perfil-nombre {
     font-family: var(--font-display); font-size: 30px;
-    color: var(--indigo); margin-bottom: 6px; font-weight: 400; line-height: 1.2;
+    color: var(--indigo); font-weight: 400; line-height: 1.2;
   }
+  /* En reposo va en índigo para no romper la paleta; al pasar el cursor
+     toma el azul de LinkedIn, que es donde conviene que se reconozca. */
+  .btn-linkedin {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 9px;
+    background: var(--indigo-tint); color: var(--indigo);
+    text-decoration: none; flex-shrink: 0;
+    transition: background .2s, color .2s;
+  }
+  .btn-linkedin:hover { background: #0A66C2; color: var(--white); }
   .perfil-rol {
     font-size: 13px; color: var(--green-dark); font-weight: 500;
     margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em;
@@ -133,7 +147,16 @@
     <div class="perfil">
       <img src="assets/hugo-landeros.jpg" alt="Retrato de Hugo A. Landeros Escamilla, fundador de Tierra Métrica" class="perfil-foto" width="280" height="280">
       <div>
-        <p class="perfil-nombre">Hugo A. Landeros Escamilla</p>
+        <div class="perfil-encabezado">
+          <p class="perfil-nombre">Hugo A. Landeros Escamilla</p>
+          <a href="https://www.linkedin.com/in/hugolanderos/" class="btn-linkedin"
+             target="_blank" rel="noopener"
+             aria-label="Ver el perfil de Hugo A. Landeros Escamilla en LinkedIn (se abre en una pestaña nueva)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+        </div>
         <p class="perfil-rol">Ingeniero Civil · Maestro en Valuación · Fundador</p>
         <p class="perfil-lugar">Guadalajara, Jalisco, México</p>
 
@@ -159,8 +182,8 @@
 <section class="section" style="background:var(--cream);">
   <div class="section-inner">
     <p class="section-eyebrow">Trayectoria</p>
-    <h2 class="section-title">Diez años entre la ingeniería y la valuación</h2>
-    <p class="section-sub">De la ingeniería hidráulica a la evaluación de proyectos inmobiliarios y la valuación independiente.</p>
+    <h2 class="section-title">Cinco años evaluando proyectos inmobiliarios</h2>
+    <p class="section-sub">De la certificación de desarrollos a la práctica independiente de valuación.</p>
 
     <div class="trayectoria">
 
@@ -176,13 +199,6 @@
         <p class="puesto-cargo">Director de análisis de proyectos inmobiliarios</p>
         <p class="puesto-org">TREESTATE</p>
         <p class="puesto-desc">Esquema de certificación <em>Trust Real Estate Evaluation</em>, que evalúa desarrollos inmobiliarios para dar certeza a compradores, inversionistas y proveedores sobre su viabilidad, seguridad y sostenibilidad comercial.</p>
-      </div>
-
-      <div class="puesto">
-        <p class="puesto-fecha">Diciembre de 2016 – julio de 2021 · Zapopan</p>
-        <p class="puesto-cargo">Ingeniero jefe de proyectos</p>
-        <p class="puesto-org">PHHS Ingeniería, S.A. de C.V.</p>
-        <p class="puesto-desc">Firma de consultoría en ingeniería de recursos hidráulicos, hidráulica urbana, hidrología y saneamiento. Coordinación y supervisión de proyectos de agua potable, alcantarillado, colectores, acueductos y manejo de escurrimientos pluviales.</p>
       </div>
 
     </div>
