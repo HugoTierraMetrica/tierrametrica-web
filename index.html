@@ -229,11 +229,15 @@
 
   /* ── SERVICIOS ── */
   .services-bg { background: var(--cream); }
+  /* Son cuatro fichas exactas: con auto-fit quedaban 3 + 1 en anchos
+     intermedios. Los cortes explícitos dan 4, 2×2 o 1, nunca una huérfana. */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
+  @media (max-width: 1040px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px)  { .services-grid { grid-template-columns: 1fr; } }
   .svc-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -491,31 +495,31 @@
     <div class="services-grid">
       <div class="svc-card">
         <div class="svc-icon" style="background:var(--indigo-tint);">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="10" width="5" height="8" rx="1" fill="#464991"/><rect x="7.5" y="6" width="5" height="12" rx="1" fill="#464991"/><rect x="13" y="2" width="5" height="16" rx="1" fill="#464991"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2.5 8.6L10 2.5l7.5 6.1" stroke="#464991" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.2 8.2v9.3h11.6V8.2" stroke="#464991" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8.1" y="12.2" width="3.8" height="5.3" rx="0.8" fill="#464991"/></svg>
         </div>
-        <p class="svc-name">Avalúo comercial</p>
-        <p class="svc-desc">Valor de mercado fundamentado para casas, departamentos, locales y terrenos en Jalisco.</p>
+        <p class="svc-name">Avalúo residencial</p>
+        <p class="svc-desc">Cuánto vale tu vivienda hoy, con inspección física y análisis comparativo de la zona.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--indigo-tint);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2.3 17.4V8.6l4.6 2.6V8.6l4.6 2.6V5.4l4.5 2.6v9.4z" stroke="#464991" stroke-width="1.4" stroke-linejoin="round" fill="none"/><rect x="5" y="14" width="2.4" height="3.4" fill="#464991"/><rect x="10" y="14" width="2.4" height="3.4" fill="#464991"/></svg>
+        </div>
+        <p class="svc-name">Avalúo industrial</p>
+        <p class="svc-desc">Valor de plantas y naves conforme a Normas Internacionales de Valuación, aceptado por bancos y auditores.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon" style="background:var(--green-tint);">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L18 7V18H2V7L10 2Z" stroke="#426B53" stroke-width="1.5" fill="none"/><rect x="7" y="12" width="6" height="6" rx="1" fill="#426B53"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2.5 15.5l4.2-5 2.8 2.4 7-8.4" stroke="#426B53" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.4 4.5h4.1v4.1" stroke="#426B53" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <p class="svc-name">Avalúo de preventa</p>
-        <p class="svc-desc">Precio estratégico para nuevos desarrollos antes de salir al mercado.</p>
+        <p class="svc-name">Análisis de mayor y mejor uso</p>
+        <p class="svc-desc">¿Vender, desarrollar, rentar o esperar? La alternativa más rentable para tu terreno, justificada con números.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon" style="background:var(--slate-tint);">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 14l4-4 3 3 5-6" stroke="#5C5B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="2" width="16" height="16" rx="3" stroke="#5C5B5A" stroke-width="1.2" fill="none"/></svg>
         </div>
         <p class="svc-name">Estudio de factibilidad</p>
-        <p class="svc-desc">Análisis técnico-económico para evaluar la viabilidad de un proyecto inmobiliario.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon" style="background:var(--cream-dark);">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8" cy="6" r="3.5" stroke="#5a5a5a" stroke-width="1.3"/><path d="M2 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#5a5a5a" stroke-width="1.3" stroke-linecap="round"/><path d="M14 9l2 2 3-3" stroke="#5a5a5a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <p class="svc-name">Asesoría en compraventa</p>
-        <p class="svc-desc">Acompañamiento técnico para que tomes la mejor decisión al comprar o vender un inmueble.</p>
+        <p class="svc-desc">Viabilidad técnica, de mercado y financiera de un proyecto, antes de comprometer capital.</p>
       </div>
     </div>
   </div>
