@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.classList.add('js');</script>
 <style>
   /* ── HERO ── */
   .hero {
@@ -155,9 +156,11 @@
   }
   .post-card:hover::after { box-shadow: inset 0 0 0 2px var(--indigo-tint); }
 
-  /* Entrada escalonada al aparecer en pantalla */
-  .reveal { opacity: 0; transform: translateY(18px); }
-  .reveal.visible {
+  /* Entrada escalonada al aparecer en pantalla.
+     Va bajo .js a propósito: si el script no carga, las tarjetas se ven
+     igual en lugar de quedarse invisibles para siempre. */
+  .js .reveal { opacity: 0; transform: translateY(18px); }
+  .js .reveal.visible {
     opacity: 1; transform: none;
     transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.3,1);
   }
@@ -328,7 +331,7 @@
 
   /* Quien prefiere menos movimiento no recibe ni animaciones ni avance solo */
   @media (prefers-reduced-motion: reduce) {
-    .reveal, .reveal.visible { opacity: 1; transform: none; transition: none; }
+    .js .reveal, .js .reveal.visible { opacity: 1; transform: none; transition: none; }
     .post-card, .post-spark, .svc-card, .red { transition: none; }
     .rotador, .rotador.saliendo, .rotador.entrando { opacity: 1; transform: none; transition: none; }
     .car-track { scroll-behavior: auto; }

@@ -203,7 +203,9 @@ a:focus-visible, button:focus-visible {
   align-items: center; flex-wrap: wrap; gap: 12px;
 }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
-.footer-links { display: flex; gap: 20px; }
+/* Sin flex-wrap los cinco enlaces desbordan la pantalla en móvil
+   y hacen que toda la página se deslice de lado. */
+.footer-links { display: flex; flex-wrap: wrap; gap: 10px 20px; }
 .footer-links a {
   font-size: 12px; color: rgba(255,255,255,0.4);
   text-decoration: none; transition: color .2s;
@@ -335,20 +337,47 @@ a:focus-visible, button:focus-visible {
 /* ══ RESPONSIVE ══ */
 @media (max-width: 860px) {
   .nav-toggle { display: flex; }
-  .nav-inner { flex-wrap: wrap; }
+
+  /* La altura era fija en 72px, así que al desplegarse el menú no cabía
+     dentro de la barra y se dibujaba encima del contenido de la página,
+     sin fondo propio. Con altura automática la barra crece y lo cubre. */
+  .nav-inner { flex-wrap: wrap; height: auto; min-height: 72px; gap: 10px; }
+
+  /* Compactar logo y botón para que quepan en un solo renglón junto a la
+     hamburguesa; si no, el botón se va solo a una segunda fila. */
+  .logo-name { font-size: 18px; }
+  .nav-cta { font-size: 12.5px; padding: 9px 15px; }
+
   .nav-links {
     display: none;
     order: 3; width: 100%;
     flex-direction: column; align-items: stretch;
-    gap: 0; padding: 8px 0 16px;
+    gap: 0; padding: 6px 0 14px;
     border-top: 1px solid var(--border);
   }
-  .nav-links.open { display: flex; }
-  .nav-links a { display: block; padding: 13px 4px; font-size: 15px; }
+  /* Fondo sólido propio: no depende de la transparencia de la barra */
+  .nav-links.open {
+    display: flex;
+    background: var(--white);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+  }
+  .nav-links a {
+    display: block; padding: 14px 4px; font-size: 15px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links li:last-child a { border-bottom: none; }
   .nav-cta { margin-left: auto; }
 }
-@media (max-width: 420px) {
-  .nav-cta { font-size: 12px; padding: 8px 14px; }
-  .logo-name { font-size: 17px; }
-  .logo-sub { letter-spacing: 0.28em; }
+
+/* Con el menú abierto la barra deja de ser translúcida, para que los
+   enlaces nunca compitan con lo que pasa por detrás. */
+.nav:has(.nav-links.open) { background: var(--white); }
+/* En pantallas estrechas el logotipo y el botón se encogen lo justo para
+   compartir renglón con la hamburguesa. Sin esto el botón cae solo a una
+   segunda fila y la barra se ve desequilibrada. */
+@media (max-width: 430px) {
+  .nav-cta { font-size: 12px; padding: 8px 13px; }
+  .logo-mark { height: 28px; }
+  .logo-name { font-size: 16px; }
+  .logo-sub { font-size: 7.5px; letter-spacing: 0.24em; }
 }

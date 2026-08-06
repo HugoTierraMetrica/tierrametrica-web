@@ -116,6 +116,7 @@
   /* Indicadores */
   var listaPuntos = [];
   if (puntos) {
+    puntos.innerHTML = ''; // idempotente: no duplica si el script corre dos veces
     for (var i = 0; i < total; i++) {
       (function (idx) {
         var b = document.createElement('button');
