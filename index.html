@@ -224,35 +224,8 @@
   }
   .post-card:hover .post-more { gap: 11px; }
 
-  /* ══ SUSCRIPCIÓN ══ */
-  .suscribe { background: var(--indigo-dark); padding: 60px 5%; }
-  .suscribe-inner {
-    max-width: 860px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 40px; align-items: center;
-  }
-  .suscribe h2 {
-    font-family: var(--font-display); font-weight: 400;
-    font-size: clamp(24px, 3vw, 31px); color: var(--white);
-    line-height: 1.25; margin-bottom: 10px;
-  }
-  .suscribe p { font-size: 14.5px; color: rgba(255,255,255,0.62); line-height: 1.7; }
-  .suscribe-form { display: flex; gap: 10px; flex-wrap: wrap; }
-  .suscribe-form input[type="email"] {
-    flex: 1; min-width: 200px;
-    font-family: var(--font-body); font-size: 14.5px;
-    padding: 13px 16px; border-radius: var(--radius);
-    border: 1px solid rgba(255,255,255,0.22);
-    background: rgba(255,255,255,0.07); color: var(--white);
-  }
-  .suscribe-form input[type="email"]::placeholder { color: rgba(255,255,255,0.42); }
-  .suscribe-form input[type="email"]:focus {
-    outline: 2px solid var(--green); outline-offset: 1px;
-    background: rgba(255,255,255,0.12);
-  }
-  .suscribe-nota { font-size: 11.5px; color: rgba(255,255,255,0.42); margin-top: 12px; line-height: 1.6; }
-  .suscribe-nota a { color: rgba(255,255,255,0.68); }
-  .oculto { position: absolute; left: -9999px; }
+  /* Los estilos de la sección de suscripción viven en assets/styles.css,
+     porque también los usa «Hablando de Tierra». */
 
   /* ── SERVICIOS ── */
   .services-bg { background: var(--cream); }
@@ -319,9 +292,6 @@
   .red-ig:hover { color: #C13584; border-color: #C13584; }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 860px) {
-    .suscribe-inner { grid-template-columns: 1fr; gap: 26px; }
-  }
   /* En móvil "Conoce el valor real de tu" no cabía a 36px (402px de texto
      contra 338px disponibles), así que "tu" quedaba solo en un renglón.
      Al escalar con vw, la frase y la palabra que rota crecen a la par que

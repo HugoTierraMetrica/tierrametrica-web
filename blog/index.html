@@ -153,6 +153,28 @@
   </div>
 </section>
 
+<!-- SUSCRIPCIÓN -->
+<section class="suscribe" aria-labelledby="suscribe-h">
+  <div class="suscribe-inner">
+    <div>
+      <h2 id="suscribe-h">Recibe cada análisis en tu correo</h2>
+      <p>Cuando publicamos un estudio nuevo sobre el mercado de Jalisco, te llega directo. Sin más frecuencia que la de los artículos, y te puedes dar de baja cuando quieras.</p>
+    </div>
+    <div>
+      <form name="suscripcion" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/gracias.html" class="suscribe-form">
+        <input type="hidden" name="form-name" value="suscripcion">
+        <p class="oculto">
+          <label>No llenes este campo si eres humano: <input name="bot-field"></label>
+        </p>
+        <label for="correo" class="oculto">Tu correo electrónico</label>
+        <input type="email" id="correo" name="correo" required placeholder="tu@correo.com" autocomplete="email">
+        <button type="submit" class="btn-primary">Suscribirme</button>
+      </form>
+      <p class="suscribe-nota">Solo usamos tu correo para enviarte los análisis. Consulta el <a href="../aviso-privacidad.html">aviso de privacidad</a>.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CTA FINAL -->
 <section class="section cta-section">
   <div class="section-inner">
