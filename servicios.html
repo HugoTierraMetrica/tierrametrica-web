@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Servicios — Tierra Métrica Valuación</title>
-<meta name="description" content="Avalúos comerciales, de preventa, de terrenos y de mejoras; justipreciación de rentas, asesoría inmobiliaria, estudios de factibilidad y auditoría de obra en Jalisco.">
+<meta name="description" content="Avalúos residenciales, comerciales e industriales, opinión de valor, due diligence de adquisición, análisis de mejor y mayor uso, estudios de factibilidad y auditoría de obra en Jalisco.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Servicios — Tierra Métrica Valuación">
-<meta property="og:description" content="Once servicios de valuación, asesoría y desarrollo inmobiliario para propietarios, compradores e inversionistas en Jalisco.">
+<meta property="og:description" content="Ocho servicios de valuación, inversión y desarrollo inmobiliario para propietarios, compradores e inversionistas en Jalisco.">
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://tierrametrica.com/servicios.html">
 <meta property="og:image" content="https://tierrametrica.com/assets/share/home.png">
@@ -26,7 +26,7 @@
   .page-hero-inner { max-width: var(--maxw); margin: 0 auto; }
   .page-hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(30px, 4vw, 48px);
     font-weight: 400; color: var(--white);
     line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em;
   }
@@ -65,12 +65,12 @@
     font-weight: 400; color: var(--indigo);
     line-height: 1.2; margin-bottom: 8px;
   }
-  .cat-desc { font-size: 14px; color: var(--text-muted); max-width: 540px; line-height: 1.7; }
+  .cat-desc { font-size: 14px; color: var(--text-muted); max-width: 560px; line-height: 1.7; }
 
   /* ── GRILLA DE SERVICIOS ── */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 16px;
   }
   .svc-card {
@@ -81,15 +81,27 @@
     transition: transform .2s, box-shadow .2s;
     display: flex; flex-direction: column;
   }
-  .svc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(65,64,153,0.1); }
+  .svc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(70,73,145,0.1); }
   .svc-tag {
     display: inline-block; font-size: 10px; font-weight: 500;
     text-transform: uppercase; letter-spacing: 0.08em;
     padding: 3px 10px; border-radius: 20px;
     margin-bottom: 14px; align-self: flex-start;
   }
-  .svc-name { font-size: 16px; font-weight: 500; color: var(--indigo); margin-bottom: 10px; line-height: 1.3; }
-  .svc-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+  .svc-name { font-size: 17px; font-weight: 600; color: var(--indigo); margin-bottom: 14px; line-height: 1.3; }
+
+  /* La duda del cliente, en sus propias palabras. Es el gancho de la ficha:
+     quien se reconoce en la pregunta ya sabe que el servicio es para él. */
+  .svc-pregunta {
+    font-size: 13.5px; font-style: italic;
+    color: #2f3050; line-height: 1.65;
+    background: var(--cream); border-left: 2px solid var(--indigo);
+    padding: 13px 15px; border-radius: 0 8px 8px 0;
+    margin-bottom: 16px;
+  }
+  .cat-section.alt .svc-pregunta { background: #F3F1EC; }
+
+  .svc-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
   .svc-for {
     font-size: 12px; font-weight: 500; color: var(--text-faint);
     border-top: 1px solid var(--border); padding-top: 14px; margin-top: auto;
@@ -98,10 +110,10 @@
 
   /* ── COLORES POR CATEGORÍA (paleta del logo) ── */
   .tag-valuacion  { background: var(--indigo-tint); color: var(--indigo); }
-  .tag-asesoria   { background: var(--green-tint);  color: var(--green-dark); }
+  .tag-inversion  { background: var(--green-tint);  color: var(--green-dark); }
   .tag-desarrollo { background: var(--slate-tint);  color: var(--slate); }
   .icon-valuacion  { background: var(--indigo-tint); }
-  .icon-asesoria   { background: var(--green-tint); }
+  .icon-inversion  { background: var(--green-tint); }
   .icon-desarrollo { background: var(--slate-tint); }
 
   .cta-section { padding: 72px 5%; }
@@ -154,7 +166,7 @@
 <nav class="cat-nav" aria-label="Categorías de servicio">
   <div class="cat-nav-inner">
     <a href="#valuacion" class="cat-tab active">Valuación</a>
-    <a href="#asesoria" class="cat-tab">Asesoría</a>
+    <a href="#inversion" class="cat-tab">Inversión</a>
     <a href="#desarrollo" class="cat-tab">Desarrollo</a>
   </div>
 </nav>
@@ -179,42 +191,32 @@
 
       <div class="svc-card">
         <span class="svc-tag tag-valuacion">Valuación</span>
+        <p class="svc-name">Avalúo residencial</p>
+        <p class="svc-pregunta">«¿Cuánto vale realmente mi vivienda en el mercado de hoy?»</p>
+        <p class="svc-desc">Determinación del valor de mercado de un inmueble mediante análisis comparativo de la zona, inspección física y aplicación de enfoques técnicos reconocidos.</p>
+        <p class="svc-for">Ideal para: <span>propietarios que desean vender, compradores que quieren verificar el precio, división de herencias o divorcios, negociación de precio.</span></p>
+      </div>
+
+      <div class="svc-card">
+        <span class="svc-tag tag-valuacion">Valuación</span>
         <p class="svc-name">Avalúo comercial</p>
-        <p class="svc-desc">Determinación del valor de mercado de un inmueble mediante análisis comparativo de la zona, inspección física y aplicación de enfoques técnicos reconocidos. El documento tiene validez para transacciones de compraventa, trámites bancarios y legales.</p>
-        <p class="svc-for">Ideal para: <span>propietarios que desean vender, compradores que quieren verificar el precio, trámites notariales o bancarios.</span></p>
+        <p class="svc-pregunta">«¿Cuánto vale realmente este inmueble comercial, oficina o mixto, con un análisis que pueda usar para negociar, invertir o tomar una decisión patrimonial seria?»</p>
+        <p class="svc-desc">Determinación del valor de mercado de un inmueble de uso comercial —locales, oficinas, bodegas o de uso mixto— mediante análisis comparativo de la zona, inspección física y aplicación de enfoques técnicos reconocidos.</p>
+        <p class="svc-for">Ideal para: <span>compraventa de locales, oficinas, naves ligeras o inmuebles de uso mixto, negociación de precio o renta, aportaciones a sociedades, fideicomisos o reorganización corporativa.</span></p>
       </div>
 
       <div class="svc-card">
         <span class="svc-tag tag-valuacion">Valuación</span>
-        <p class="svc-name">Avalúo de preventa</p>
-        <p class="svc-desc">Estudio de valor orientado a proyectos en desarrollo o preventa. Determina el precio de salida óptimo al mercado considerando el avance de obra, el entorno competitivo y la absorción esperada del producto.</p>
-        <p class="svc-for">Ideal para: <span>desarrolladores que van a lanzar un proyecto al mercado y necesitan definir su estrategia de precios.</span></p>
-      </div>
-
-      <div class="svc-card">
-        <span class="svc-tag tag-valuacion">Valuación</span>
-        <p class="svc-name">Avalúo de terrenos</p>
-        <p class="svc-desc">Incluye tres modalidades según el propósito: avalúo comercial (valor actual del terreno), mayor y mejor uso (determina el uso más rentable del suelo) y residual (calcula el valor del terreno a partir del proyecto que puede soportar).</p>
-        <p class="svc-for">Ideal para: <span>propietarios de terrenos, compradores o inversionistas que evalúan la viabilidad de un sitio.</span></p>
-      </div>
-
-      <div class="svc-card">
-        <span class="svc-tag tag-valuacion">Valuación</span>
-        <p class="svc-name">Justipreciación de rentas</p>
-        <p class="svc-desc">Determinación técnica del valor justo de renta de un inmueble conforme a las condiciones actuales del mercado. Evita fijar rentas por debajo o encima del valor real, protegiendo los intereses de arrendador y arrendatario.</p>
-        <p class="svc-for">Ideal para: <span>propietarios que rentarán su inmueble, empresas que negocian contratos de arrendamiento.</span></p>
-      </div>
-
-      <div class="svc-card">
-        <span class="svc-tag tag-valuacion">Valuación</span>
-        <p class="svc-name">Avalúo de mejoras</p>
-        <p class="svc-desc">Cuantificación del valor de las construcciones, instalaciones o adaptaciones realizadas sobre un inmueble. Útil para segregar el valor del terreno del valor construido, o para negociaciones donde las mejoras son el objeto de la transacción.</p>
-        <p class="svc-for">Ideal para: <span>arrendatarios con mejoras propias, socios que liquidan una sociedad, trámites de seguros.</span></p>
+        <p class="svc-name">Avalúo de inmuebles industriales</p>
+        <p class="svc-pregunta">«Necesito conocer el valor real de mi planta o nave industrial para financiamiento, garantías, fines contables, seguros o reorganización empresarial, con un análisis aceptado por auditores, bancos, aseguradoras o socios.»</p>
+        <p class="svc-desc">Determinación del valor de reposición de un inmueble de uso industrial, conforme a las Normas Internacionales de Valuación (IVS).</p>
+        <p class="svc-for">Ideal para: <span>empresas industriales, re-expresión contable, renovación de pólizas, operaciones de M&amp;A corporativas.</span></p>
       </div>
 
       <div class="svc-card">
         <span class="svc-tag tag-valuacion">Valuación</span>
         <p class="svc-name">Opinión de valor</p>
+        <p class="svc-pregunta">«Necesito una referencia profesional rápida del valor antes de decidir si avanzo con un avalúo formal o con una operación.»</p>
         <p class="svc-desc">Estimación técnica del valor de mercado basada en análisis de mercado y experiencia profesional, sin el rigor formal de un avalúo certificado. Entrega más ágil y a menor costo, ideal cuando se necesita una referencia confiable para tomar decisiones.</p>
         <p class="svc-for">Ideal para: <span>quienes necesitan una referencia rápida de valor antes de negociar o decidir si contratar un avalúo formal.</span></p>
       </div>
@@ -223,43 +225,37 @@
   </div>
 </section>
 
-<!-- CATEGORÍA 2: ASESORÍA -->
-<section class="cat-section alt" id="asesoria">
+<!-- CATEGORÍA 2: INVERSIÓN -->
+<section class="cat-section alt" id="inversion">
   <div class="cat-section-inner">
     <div class="cat-header">
-      <div class="cat-icon icon-asesoria">
+      <div class="cat-icon icon-inversion">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="9" cy="7" r="4" stroke="#426B53" stroke-width="1.5"/>
-          <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#426B53" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M17 10l2 2 4-4" stroke="#426B53" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 17l5-5 3.5 3.5L21 6" stroke="#426B53" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 6h6v6" stroke="#426B53" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
       <div>
-        <h2 class="cat-title">Asesoría</h2>
-        <p class="cat-desc">Acompañamiento técnico e independiente para que tomes la mejor decisión en tu transacción inmobiliaria. Sin conflicto de interés — nuestra única lealtad es hacia ti como cliente.</p>
+        <h2 class="cat-title">Inversión</h2>
+        <p class="cat-desc">Acompañamiento técnico e independiente para que tomes la mejor decisión en tu transacción inmobiliaria. Sin conflicto de interés — nuestro único compromiso es contigo como cliente.</p>
       </div>
     </div>
     <div class="services-grid">
 
       <div class="svc-card">
-        <span class="svc-tag tag-asesoria">Asesoría</span>
-        <p class="svc-name">Asesoría inmobiliaria</p>
-        <p class="svc-desc">Orientación técnica integral para quienes enfrentan una decisión inmobiliaria compleja: ¿conviene comprar o rentar?, ¿es buen momento para vender?, ¿el precio que me ofrecen es justo? Análisis objetivo sin interés en la comisión de la transacción.</p>
-        <p class="svc-for">Ideal para: <span>cualquier persona o empresa que necesita una segunda opinión técnica antes de tomar una decisión inmobiliaria importante.</span></p>
+        <span class="svc-tag tag-inversion">Inversión</span>
+        <p class="svc-name">Due diligence inmobiliario para adquisición</p>
+        <p class="svc-pregunta">«Voy a comprar este inmueble. Antes de firmar quiero saber si el precio es correcto, si la documentación está limpia, si hay riesgos técnicos, si es una preventa confiable, si la zona va a apreciar y qué debería negociar.»</p>
+        <p class="svc-desc">Dictamen técnico de valor del inmueble. Análisis de la construcción, revisión documental, estudio de la zona y su plusvalía, identificación de riesgos y recomendación para la negociación.</p>
+        <p class="svc-for">Ideal para: <span>inversionista privado, empresa que va a comprar un inmueble para operación o inversión, comprador serio que no quiere depender solo del agente inmobiliario.</span></p>
       </div>
 
       <div class="svc-card">
-        <span class="svc-tag tag-asesoria">Asesoría</span>
-        <p class="svc-name">Representación de comprador</p>
-        <p class="svc-desc">Acompañamiento técnico durante todo el proceso de compra: análisis del inmueble, revisión del precio versus mercado, identificación de riesgos físicos o legales visibles, y apoyo en la negociación. El comprador tiene un experto de su lado.</p>
-        <p class="svc-for">Ideal para: <span>personas que compran su primera casa, compradores que no viven en Jalisco, o quienes desconfían de la información del vendedor.</span></p>
-      </div>
-
-      <div class="svc-card">
-        <span class="svc-tag tag-asesoria">Asesoría</span>
-        <p class="svc-name">Estrategia de venta</p>
-        <p class="svc-desc">Definición del precio óptimo de salida, análisis del momento de mercado, recomendaciones de presentación del inmueble y estrategia de negociación. El objetivo es maximizar el valor obtenido en el menor tiempo posible.</p>
-        <p class="svc-for">Ideal para: <span>propietarios que quieren vender con certeza de que su precio es competitivo y su estrategia es la correcta.</span></p>
+        <span class="svc-tag tag-inversion">Inversión</span>
+        <p class="svc-name">Análisis de mejor y mayor uso</p>
+        <p class="svc-pregunta">«Tengo este terreno, o esta propiedad subutilizada. ¿Qué me conviene más hacer con él: venderlo, desarrollarlo, rentarlo o esperar?»</p>
+        <p class="svc-desc">Análisis del uso de suelo y de su potencial, identificación de las alternativas técnicamente posibles, evaluación financiera de cada una y recomendación final justificada técnica y financieramente.</p>
+        <p class="svc-for">Ideal para: <span>dueño de terreno heredado, parado o subutilizado, inversionista evaluando varias opciones para el mismo activo, empresa con activo inmobiliario excedente que busca rentabilizar, familia tomando decisiones sobre su patrimonio.</span></p>
       </div>
 
     </div>
@@ -288,7 +284,7 @@
       <div class="svc-card">
         <span class="svc-tag tag-desarrollo">Desarrollo</span>
         <p class="svc-name">Estudio de factibilidad de proyecto inmobiliario</p>
-        <p class="svc-desc">Análisis integral que evalúa la viabilidad técnica, de mercado y financiera de un proyecto inmobiliario. Incluye estudio de mercado, análisis del producto propuesto, proyección de absorción, estimación de ingresos y evaluación de rentabilidad.</p>
+        <p class="svc-desc">Análisis integral que evalúa la viabilidad técnica, de mercado y financiera de un proyecto inmobiliario. Incluye estudio de mercado, análisis del producto propuesto, proyección de absorción, estimación de ingresos y evaluación de rentabilidad por medio de flujo de efectivo.</p>
         <p class="svc-for">Ideal para: <span>inversionistas que evalúan adquirir un terreno para desarrollar, desarrolladores en etapa de planeación, socios que buscan validar un proyecto ante un banco o fondo.</span></p>
       </div>
 
@@ -296,7 +292,7 @@
         <span class="svc-tag tag-desarrollo">Desarrollo</span>
         <p class="svc-name">Auditoría de obra</p>
         <p class="svc-desc">Revisión técnica independiente del avance físico de una obra respecto al programa y presupuesto establecidos. Verifica que los recursos invertidos correspondan al avance real, detecta desviaciones y emite recomendaciones. Esencial para inversionistas que financian proyectos de terceros.</p>
-        <p class="svc-for">Ideal para: <span>inversionistas privados, fondos o socios que aportan capital a un desarrollo y necesitan verificar independientemente el avance de obra.</span></p>
+        <p class="svc-for">Ideal para: <span>inversionistas privados, instituciones financieras, fondos o socios que aportan capital a un desarrollo y necesitan verificar independientemente el avance de obra.</span></p>
       </div>
 
     </div>

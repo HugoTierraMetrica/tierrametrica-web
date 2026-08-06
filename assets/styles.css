@@ -419,3 +419,12 @@ a:focus-visible, button:focus-visible {
   .logo-name { font-size: 16px; }
   .logo-sub { font-size: 7.5px; letter-spacing: 0.24em; }
 }
+
+/* Por debajo de ~405px, "Solicitar información" ya no cabe junto al
+   logotipo completo (360px de contenido contra 338 disponibles en un
+   iPhone de 375). Se conserva el isotipo, que es la parte reconocible,
+   y se cede el nombre; el enlace mantiene su aria-label. */
+@media (max-width: 410px) {
+  .logo-text { display: none; }
+  .logo-mark { height: 30px; }
+}
