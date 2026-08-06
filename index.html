@@ -322,6 +322,15 @@
   @media (max-width: 860px) {
     .suscribe-inner { grid-template-columns: 1fr; gap: 26px; }
   }
+  /* En móvil "Conoce el valor real de tu" no cabía a 36px (402px de texto
+     contra 338px disponibles), así que "tu" quedaba solo en un renglón.
+     Al escalar con vw, la frase y la palabra que rota crecen a la par que
+     la pantalla y siempre entran completas. */
+  @media (max-width: 640px) {
+    .hero-h1 { font-size: clamp(25px, 7.4vw, 34px); }
+    .hero-sub { font-size: 15px; }
+  }
+
   @media (max-width: 768px) {
     .steps-row { grid-template-columns: 1fr; }
     .steps-row::before { display: none; }
