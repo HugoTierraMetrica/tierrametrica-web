@@ -48,6 +48,15 @@
     margin-bottom: 20px; letter-spacing: -0.01em;
   }
   .hero-h1 em { font-style: italic; color: #8FC5A6; }
+  /* La palabra que rota va en su propio renglón: así al cambiar de longitud
+     no reacomoda la primera línea. El min-height evita el salto vertical. */
+  .rotador {
+    display: inline-block;
+    min-height: 1.15em;
+    transition: opacity .38s ease, transform .38s cubic-bezier(.2,.7,.3,1);
+  }
+  .rotador.saliendo { opacity: 0; transform: translateY(-14px); }
+  .rotador.entrando { opacity: 0; transform: translateY(14px); }
   .hero-sub {
     font-size: 16px; color: rgba(255,255,255,0.68);
     max-width: 500px; line-height: 1.7; margin-bottom: 36px;
@@ -321,6 +330,7 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal, .reveal.visible { opacity: 1; transform: none; transition: none; }
     .post-card, .post-spark, .svc-card, .red { transition: none; }
+    .rotador, .rotador.saliendo, .rotador.entrando { opacity: 1; transform: none; transition: none; }
     .car-track { scroll-behavior: auto; }
   }
 </style>
@@ -344,7 +354,7 @@
       <li><a href="servicios.html">Servicios</a></li>
       <li><a href="nosotros.html">Nosotros</a></li>
       <li><a href="#proceso">Cómo trabajamos</a></li>
-      <li><a href="blog/index.html">Análisis</a></li>
+      <li><a href="blog/index.html">Hablando de Tierra</a></li>
     </ul>
     <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="nav-cta">Solicitar avalúo</a>
   </div>
@@ -353,7 +363,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <h1 class="hero-h1">Conoce el valor <em>real</em> de tu patrimonio inmobiliario</h1>
+    <h1 class="hero-h1">Conoce el valor <em>real</em> de tu<br>
+      <span class="rotador" id="rotador">inmueble</span>
+    </h1>
     <p class="hero-sub">Avalúos comerciales, estudios de factibilidad y asesoría en compraventa con respaldo técnico y objetividad profesional.</p>
     <div class="hero-btns">
       <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="btn-primary">Solicitar avalúo</a>
@@ -367,9 +379,8 @@
   <div class="section-inner">
     <div class="analisis-head">
       <div>
-        <p class="section-eyebrow">Análisis</p>
-        <h2 class="section-title" id="analisis-h">Datos del mercado, explicados</h2>
-        <p class="section-sub">Estudios breves sobre el mercado inmobiliario de Jalisco, con cifras de fuentes oficiales.</p>
+        <h2 class="section-title" id="analisis-h">Hablando de Tierra</h2>
+        <p class="section-sub">Estudios, análisis y noticias breves sobre el mercado inmobiliario de Jalisco.</p>
       </div>
       <div class="car-controls">
         <a href="blog/index.html" class="car-all">Ver todos</a>
@@ -603,7 +614,7 @@
   <div class="footer-inner">
     <span class="footer-copy">© 2026 Tierra Métrica · Valuación Inmobiliaria · Jalisco, México</span>
     <div class="footer-links">
-      <a href="blog/index.html">Análisis</a>
+      <a href="blog/index.html">Hablando de Tierra</a>
       <a href="servicios.html">Servicios</a>
       <a href="aviso-privacidad.html">Aviso de privacidad</a>
       <a href="condiciones-uso.html">Condiciones de uso</a>

@@ -24,6 +24,44 @@
     });
   }
 
+  /* ── Palabra que rota en el encabezado ── */
+  var rotador = document.getElementById('rotador');
+  if (rotador && !menosMovimiento) {
+    var palabras = ['inmueble', 'patrimonio inmobiliario', 'activo inmobiliario', 'inversión inmobiliaria'];
+    var iPalabra = 0;
+    var relojRotador = null;
+
+    // No se anuncia cada cambio: sería ruido constante para un lector de pantalla.
+    // La frase completa ya se leyó una vez al cargar la página.
+    rotador.setAttribute('aria-live', 'off');
+
+    function cambiarPalabra() {
+      rotador.classList.add('saliendo');
+      setTimeout(function () {
+        iPalabra = (iPalabra + 1) % palabras.length;
+        rotador.textContent = palabras[iPalabra];
+        rotador.classList.remove('saliendo');
+        rotador.classList.add('entrando');
+        // Fuerza el reflow para que la transición de entrada sí se dispare
+        void rotador.offsetWidth;
+        rotador.classList.remove('entrando');
+      }, 380);
+    }
+
+    function arrancarRotador() {
+      if (!relojRotador) relojRotador = setInterval(cambiarPalabra, 2800);
+    }
+    function pararRotador() {
+      clearInterval(relojRotador);
+      relojRotador = null;
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { pararRotador(); } else { arrancarRotador(); }
+    });
+    arrancarRotador();
+  }
+
   /* ── Aparición escalonada de elementos al entrar en pantalla ── */
   var aRevelar = document.querySelectorAll('.reveal');
   if (aRevelar.length) {
