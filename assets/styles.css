@@ -105,14 +105,16 @@ a:focus-visible, button:focus-visible {
 .nav-links a:hover { color: var(--indigo); }
 .nav-links a.active { color: var(--indigo); font-weight: 500; }
 
+/* Mismo verde que .btn-primary, para que el botón de la barra y el del
+   cuerpo se lean como la misma acción. Blanco sobre #426B53 da 6.1:1. */
 .nav-cta {
   font-size: 13px; font-weight: 500;
-  background: var(--indigo); color: var(--white);
+  background: var(--green-dark); color: var(--white);
   padding: 9px 20px; border-radius: var(--radius);
   text-decoration: none; border: none; cursor: pointer;
   transition: background .2s; white-space: nowrap;
 }
-.nav-cta:hover { background: var(--indigo-mid); }
+.nav-cta:hover { background: var(--green-darker); }
 
 /* ── Botón hamburguesa (sólo móvil) ── */
 .nav-toggle {
