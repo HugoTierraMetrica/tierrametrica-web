@@ -293,6 +293,10 @@ a:focus-visible, button:focus-visible {
 .article-body strong { font-weight: 600; color: var(--text); }
 .article-body a { color: var(--indigo); text-decoration: underline; text-underline-offset: 2px; }
 
+/* El botón de llamado vive dentro de .article-body, así que la regla de
+   arriba lo pintaba de índigo y subrayado sobre el fondo verde. */
+.article-body .btn-primary { color: var(--white); text-decoration: none; }
+
 .pullquote {
   border-left: 3px solid var(--green);
   background: var(--green-tint);
