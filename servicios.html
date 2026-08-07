@@ -80,6 +80,7 @@
     padding: 28px 26px 24px;
     transition: transform .2s, box-shadow .2s;
     display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
   }
   .svc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(70,73,145,0.1); }
   .svc-tag {
@@ -102,11 +103,37 @@
   .cat-section.alt .svc-pregunta { background: #F3F1EC; }
 
   .svc-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+  /* ── "Ideal para" ──
+     En táctil no existe el hover, así que ahí se muestra siempre. */
   .svc-for {
-    font-size: 12px; font-weight: 500; color: var(--text-faint);
-    border-top: 1px solid var(--border); padding-top: 14px; margin-top: auto;
+    font-size: 14px; line-height: 1.6; color: var(--text-muted);
+    border-top: 1px solid var(--border); padding-top: 16px; margin-top: auto;
   }
-  .svc-for span { color: var(--text-muted); font-weight: 400; }
+  .svc-for strong {
+    display: block; font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--text-faint); margin-bottom: 6px;
+  }
+
+  /* Sólo donde hay cursor real: el bloque descansa bajo la ficha y sube al
+     pasar por encima. Con :focus-within también aparece al tabular. */
+  @media (hover: hover) and (pointer: fine) {
+    .svc-for {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      margin: 0; padding: 22px 26px 24px;
+      border-top: none; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      background: var(--indigo-dark); color: rgba(255,255,255,0.78);
+      transform: translateY(101%);
+      transition: transform .34s cubic-bezier(.2,.7,.3,1);
+    }
+    .svc-for strong { color: rgba(255,255,255,0.5); }
+    .svc-card:hover .svc-for,
+    .svc-card:focus-within .svc-for { transform: translateY(0); }
+    .svc-desc { margin-bottom: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .svc-for { transition: none; }
+  }
 
   /* ── COLORES POR CATEGORÍA (paleta del logo) ── */
   .tag-valuacion  { background: var(--indigo-tint); color: var(--indigo); }
@@ -194,7 +221,7 @@
         <p class="svc-name">Avalúo residencial</p>
         <p class="svc-pregunta">«¿Cuánto vale realmente mi vivienda en el mercado de hoy?»</p>
         <p class="svc-desc">Determinación del valor de mercado de un inmueble mediante análisis comparativo de la zona, inspección física y aplicación de enfoques técnicos reconocidos.</p>
-        <p class="svc-for">Ideal para: <span>propietarios que desean vender, compradores que quieren verificar el precio, división de herencias o divorcios, negociación de precio.</span></p>
+        <p class="svc-for"><strong>Ideal para</strong>propietarios que desean vender, compradores que quieren verificar el precio, división de herencias o divorcios, negociación de precio.</p>
       </div>
 
       <div class="svc-card">
@@ -202,7 +229,7 @@
         <p class="svc-name">Avalúo comercial</p>
         <p class="svc-pregunta">«¿Cuánto vale realmente este inmueble comercial, oficina o mixto, con un análisis que pueda usar para negociar, invertir o tomar una decisión patrimonial seria?»</p>
         <p class="svc-desc">Determinación del valor de mercado de un inmueble de uso comercial —locales, oficinas, bodegas o de uso mixto— mediante análisis comparativo de la zona, inspección física y aplicación de enfoques técnicos reconocidos.</p>
-        <p class="svc-for">Ideal para: <span>compraventa de locales, oficinas, naves ligeras o inmuebles de uso mixto, negociación de precio o renta, aportaciones a sociedades, fideicomisos o reorganización corporativa.</span></p>
+        <p class="svc-for"><strong>Ideal para</strong>compraventa de locales, oficinas, naves ligeras o inmuebles de uso mixto, negociación de precio o renta, aportaciones a sociedades, fideicomisos o reorganización corporativa.</p>
       </div>
 
       <div class="svc-card">
@@ -210,7 +237,7 @@
         <p class="svc-name">Avalúo de inmuebles industriales</p>
         <p class="svc-pregunta">«Necesito conocer el valor real de mi planta o nave industrial para financiamiento, garantías, fines contables, seguros o reorganización empresarial, con un análisis aceptado por auditores, bancos, aseguradoras o socios.»</p>
         <p class="svc-desc">Determinación del valor de reposición de un inmueble de uso industrial, conforme a las Normas Internacionales de Valuación (IVS).</p>
-        <p class="svc-for">Ideal para: <span>empresas industriales, re-expresión contable, renovación de pólizas, operaciones de M&amp;A corporativas.</span></p>
+        <p class="svc-for"><strong>Ideal para</strong>empresas industriales, re-expresión contable, renovación de pólizas, operaciones de M&amp;A corporativas.</p>
       </div>
 
       <div class="svc-card">
@@ -218,7 +245,7 @@
         <p class="svc-name">Opinión de valor</p>
         <p class="svc-pregunta">«Necesito una referencia profesional rápida del valor antes de decidir si avanzo con un avalúo formal o con una operación.»</p>
         <p class="svc-desc">Estimación técnica del valor de mercado basada en análisis de mercado y experiencia profesional, sin el rigor formal de un avalúo certificado. Entrega más ágil y a menor costo, ideal cuando se necesita una referencia confiable para tomar decisiones.</p>
-        <p class="svc-for">Ideal para: <span>quienes necesitan una referencia rápida de valor antes de negociar o decidir si contratar un avalúo formal.</span></p>
+        <p class="svc-for"><strong>Ideal para</strong>quienes necesitan una referencia rápida de valor antes de negociar o decidir si contratar un avalúo formal.</p>
       </div>
 
     </div>
@@ -247,7 +274,7 @@
         <p class="svc-name">Due diligence inmobiliario para adquisición</p>
         <p class="svc-pregunta">«Voy a comprar este inmueble. Antes de firmar quiero saber si el precio es correcto, si la documentación está limpia, si hay riesgos técnicos, si es una preventa confiable, si la zona va a apreciar y qué debería negociar.»</p>
         <p class="svc-desc">Dictamen técnico de valor del inmueble. Análisis de la construcción, revisión documental, estudio de la zona y su plusvalía, identificación de riesgos y recomendación para la negociación.</p>
-        <p class="svc-for">Ideal para: <span>inversionista privado, empresa que va a comprar un inmueble para operación o inversión, comprador serio que no quiere depender solo del agente inmobiliario.</span></p>
+        <p class="svc-for"><strong>Ideal para</strong>inversionista privado, empresa que va a comprar un inmueble para operación o inversión, comprador serio que no quiere depender solo del agente inmobiliario.</p>
       </div>
 
       <div class="svc-card">
@@ -255,7 +282,7 @@
         <p class="svc-name">Análisis de mayor y mejor uso</p>
         <p class="svc-pregunta">«Tengo este terreno, o esta propiedad subutilizada. ¿Qué me conviene más hacer con él: venderlo, desarrollarlo, rentarlo o esperar?»</p>
         <p class="svc-desc">Análisis del uso de suelo y de su potencial, identificación de las alternativas técnicamente posibles, evaluación financiera de cada una y recomendación final justificada técnica y financieramente.</p>
-        <p class="svc-for">Ideal para: <span>dueño de terreno heredado, parado o subutilizado, inversionista evaluando varias opciones para el mismo activo, empresa con activo inmobiliario excedente que busca rentabilizar, familia tomando decisiones sobre su patrimonio.</span></p>
+        <p class="svc-for"><strong>Ideal para</strong>dueño de terreno heredado, parado o subutilizado, inversionista evaluando varias opciones para el mismo activo, empresa con activo inmobiliario excedente que busca rentabilizar, familia tomando decisiones sobre su patrimonio.</p>
       </div>
 
     </div>
@@ -285,14 +312,14 @@
         <span class="svc-tag tag-desarrollo">Desarrollo</span>
         <p class="svc-name">Estudio de factibilidad de proyecto inmobiliario</p>
         <p class="svc-desc">Análisis integral que evalúa la viabilidad técnica, de mercado y financiera de un proyecto inmobiliario. Incluye estudio de mercado, análisis del producto propuesto, proyección de absorción, estimación de ingresos y evaluación de rentabilidad por medio de flujo de efectivo.</p>
-        <p class="svc-for">Ideal para: <span>inversionistas que evalúan adquirir un terreno para desarrollar, desarrolladores en etapa de planeación, socios que buscan validar un proyecto ante un banco o fondo.</span></p>
+        <p class="svc-for"><strong>Ideal para</strong>inversionistas que evalúan adquirir un terreno para desarrollar, desarrolladores en etapa de planeación, socios que buscan validar un proyecto ante un banco o fondo.</p>
       </div>
 
       <div class="svc-card">
         <span class="svc-tag tag-desarrollo">Desarrollo</span>
         <p class="svc-name">Auditoría de obra</p>
         <p class="svc-desc">Revisión técnica independiente del avance físico de una obra respecto al programa y presupuesto establecidos. Verifica que los recursos invertidos correspondan al avance real, detecta desviaciones y emite recomendaciones. Esencial para inversionistas que financian proyectos de terceros.</p>
-        <p class="svc-for">Ideal para: <span>inversionistas privados, instituciones financieras, fondos o socios que aportan capital a un desarrollo y necesitan verificar independientemente el avance de obra.</span></p>
+        <p class="svc-for"><strong>Ideal para</strong>inversionistas privados, instituciones financieras, fondos o socios que aportan capital a un desarrollo y necesitan verificar independientemente el avance de obra.</p>
       </div>
 
     </div>
