@@ -73,24 +73,24 @@
      motivo. El recorte a 4:3 se hace en el archivo, no aquí. */
   .cat-top {
     display: grid;
-    grid-template-columns: 1fr minmax(260px, 360px);
-    gap: 44px; align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+    gap: 44px; align-items: stretch;
     margin-bottom: 48px;
   }
-  .cat-top .cat-header { margin-bottom: 0; }
-  .cat-foto { margin: 0; }
+  .cat-top .cat-header { margin-bottom: 0; align-self: center; }
+  /* 3:2 en vez de 4:3: con el texto en ~118px, un 4:3 a este ancho se
+     iba a 270px de alto y la foto dominaba el encabezado. El recorte
+     se hace en el archivo; aquí sólo se declara para reservar espacio. */
+  .cat-foto { margin: 0; align-self: center; }
   .cat-foto img {
-    /* height:auto neutraliza el atributo height del HTML —que está para
-       reservar el espacio y evitar saltos de carga—; sin él gana sobre
-       aspect-ratio y la foto sale estirada. */
     display: block; width: 100%; height: auto;
-    aspect-ratio: 4 / 3; object-fit: cover;
+    aspect-ratio: 3 / 2; object-fit: cover;
     border-radius: var(--radius-lg);
     box-shadow: 0 10px 30px rgba(70,73,145,0.13);
   }
   .cat-foto figcaption {
     font-size: 11.5px; color: var(--text-faint);
-    line-height: 1.5; padding: 10px 4px 0;
+    line-height: 1.5; padding: 9px 4px 0;
   }
 
   /* ── GRILLA DE SERVICIOS ── */
@@ -246,7 +246,7 @@
         </div>
       </div>
       <figure class="cat-foto">
-        <img src="assets/fotos/valuacion.jpg" width="800" height="600" loading="lazy" decoding="async"
+        <img src="assets/fotos/valuacion.jpg" width="840" height="560" loading="lazy" decoding="async"
              alt="Vialidad de concreto recién construida en un predio en proceso de urbanización, con lotes aún sin edificar a los costados.">
         <figcaption>Recorrido de campo en un predio en proceso de urbanización.</figcaption>
       </figure>
@@ -314,7 +314,7 @@
         </div>
       </div>
       <figure class="cat-foto">
-        <img src="assets/fotos/inversion.jpg" width="800" height="600" loading="lazy" decoding="async"
+        <img src="assets/fotos/inversion.jpg" width="840" height="560" loading="lazy" decoding="async"
              alt="Tres personas con casco de seguridad, de espaldas, observan el mar desde el vano de una torre en obra frente a la bahía.">
         <figcaption>Inspección de una torre en obra frente a la bahía.</figcaption>
       </figure>
@@ -360,9 +360,9 @@
         </div>
       </div>
       <figure class="cat-foto">
-        <img src="assets/fotos/desarrollo.jpg" width="800" height="600" loading="lazy" decoding="async"
-             alt="Tres profesionales con casco conversan sobre un lecho de varilla de acero en la obra de un desarrollo en construcción.">
-        <figcaption>Visita de obra en un desarrollo en construcción.</figcaption>
+        <img src="assets/fotos/desarrollo.jpg" width="840" height="560" loading="lazy" decoding="async"
+             alt="Profesional con casco toma notas junto a paquetes de varilla de acero, en la obra de un edificio en etapa de estructura.">
+        <figcaption>Visita de obra durante la etapa de estructura.</figcaption>
       </figure>
     </div>
     <div class="services-grid">
