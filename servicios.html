@@ -67,6 +67,32 @@
   }
   .cat-desc { font-size: 14px; color: var(--text-muted); max-width: 560px; line-height: 1.7; }
 
+  /* ── Foto de la categoría ──
+     Va al costado del encabezado, no como banda ancha: dos de las tres
+     fotos son verticales y una banda las recortaría hasta perder el
+     motivo. El recorte a 4:3 se hace en el archivo, no aquí. */
+  .cat-top {
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, 360px);
+    gap: 44px; align-items: center;
+    margin-bottom: 48px;
+  }
+  .cat-top .cat-header { margin-bottom: 0; }
+  .cat-foto { margin: 0; }
+  .cat-foto img {
+    /* height:auto neutraliza el atributo height del HTML —que está para
+       reservar el espacio y evitar saltos de carga—; sin él gana sobre
+       aspect-ratio y la foto sale estirada. */
+    display: block; width: 100%; height: auto;
+    aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(70,73,145,0.13);
+  }
+  .cat-foto figcaption {
+    font-size: 11.5px; color: var(--text-faint);
+    line-height: 1.5; padding: 10px 4px 0;
+  }
+
   /* ── GRILLA DE SERVICIOS ── */
   .services-grid {
     display: grid;
@@ -149,6 +175,10 @@
   @media (max-width: 860px) {
     .cat-nav { top: 72px; overflow-x: auto; }
   }
+  @media (max-width: 900px) {
+    .cat-top { grid-template-columns: 1fr; gap: 26px; margin-bottom: 36px; }
+    .cat-foto { max-width: 460px; }
+  }
   @media (max-width: 768px) {
     .cat-tab { padding: 14px 16px; }
     .cat-header { flex-direction: column; gap: 12px; }
@@ -201,18 +231,25 @@
 <!-- CATEGORÍA 1: VALUACIÓN -->
 <section class="cat-section" id="valuacion">
   <div class="cat-section-inner">
-    <div class="cat-header">
-      <div class="cat-icon icon-valuacion">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3" y="12" width="5" height="9" rx="1.5" fill="#464991"/>
-          <rect x="9.5" y="7" width="5" height="14" rx="1.5" fill="#464991"/>
-          <rect x="16" y="3" width="5" height="18" rx="1.5" fill="#464991"/>
-        </svg>
+    <div class="cat-top">
+      <div class="cat-header">
+        <div class="cat-icon icon-valuacion">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="12" width="5" height="9" rx="1.5" fill="#464991"/>
+            <rect x="9.5" y="7" width="5" height="14" rx="1.5" fill="#464991"/>
+            <rect x="16" y="3" width="5" height="18" rx="1.5" fill="#464991"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="cat-title">Valuación</h2>
+          <p class="cat-desc">Determinamos el valor de mercado de tu inmueble con metodología técnica rigurosa, respaldada por análisis comparativo, inspección física y conocimiento profundo del mercado en Jalisco.</p>
+        </div>
       </div>
-      <div>
-        <h2 class="cat-title">Valuación</h2>
-        <p class="cat-desc">Determinamos el valor de mercado de tu inmueble con metodología técnica rigurosa, respaldada por análisis comparativo, inspección física y conocimiento profundo del mercado en Jalisco.</p>
-      </div>
+      <figure class="cat-foto">
+        <img src="assets/fotos/valuacion.jpg" width="800" height="600" loading="lazy" decoding="async"
+             alt="Vialidad de concreto recién construida en un predio en proceso de urbanización, con lotes aún sin edificar a los costados.">
+        <figcaption>Recorrido de campo en un predio en proceso de urbanización.</figcaption>
+      </figure>
     </div>
     <div class="services-grid">
 
@@ -263,17 +300,24 @@
 <!-- CATEGORÍA 2: INVERSIÓN -->
 <section class="cat-section alt" id="inversion">
   <div class="cat-section-inner">
-    <div class="cat-header">
-      <div class="cat-icon icon-inversion">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M3 17l5-5 3.5 3.5L21 6" stroke="#426B53" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M15 6h6v6" stroke="#426B53" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <div class="cat-top">
+      <div class="cat-header">
+        <div class="cat-icon icon-inversion">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 17l5-5 3.5 3.5L21 6" stroke="#426B53" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 6h6v6" stroke="#426B53" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="cat-title">Inversión</h2>
+          <p class="cat-desc">Acompañamiento técnico e independiente para que tomes la mejor decisión en tu transacción inmobiliaria. Sin conflicto de interés — nuestro único compromiso es contigo como cliente.</p>
+        </div>
       </div>
-      <div>
-        <h2 class="cat-title">Inversión</h2>
-        <p class="cat-desc">Acompañamiento técnico e independiente para que tomes la mejor decisión en tu transacción inmobiliaria. Sin conflicto de interés — nuestro único compromiso es contigo como cliente.</p>
-      </div>
+      <figure class="cat-foto">
+        <img src="assets/fotos/inversion.jpg" width="800" height="600" loading="lazy" decoding="async"
+             alt="Tres personas con casco de seguridad, de espaldas, observan el mar desde el vano de una torre en obra frente a la bahía.">
+        <figcaption>Inspección de una torre en obra frente a la bahía.</figcaption>
+      </figure>
     </div>
     <div class="services-grid">
 
@@ -300,19 +344,26 @@
 <!-- CATEGORÍA 3: DESARROLLO -->
 <section class="cat-section" id="desarrollo">
   <div class="cat-section-inner">
-    <div class="cat-header">
-      <div class="cat-icon icon-desarrollo">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="2" y="3" width="20" height="18" rx="2" stroke="#5C5B5A" stroke-width="1.5" fill="none"/>
-          <path d="M2 9h20" stroke="#5C5B5A" stroke-width="1.5"/>
-          <path d="M8 3v6M16 3v6" stroke="#5C5B5A" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M7 14l3 3 5-5" stroke="#5C5B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <div class="cat-top">
+      <div class="cat-header">
+        <div class="cat-icon icon-desarrollo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="18" rx="2" stroke="#5C5B5A" stroke-width="1.5" fill="none"/>
+            <path d="M2 9h20" stroke="#5C5B5A" stroke-width="1.5"/>
+            <path d="M8 3v6M16 3v6" stroke="#5C5B5A" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7 14l3 3 5-5" stroke="#5C5B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="cat-title">Desarrollo inmobiliario</h2>
+          <p class="cat-desc">Análisis técnico especializado para proyectos inmobiliarios en etapa de planeación o ejecución. Respaldo profesional para inversionistas, desarrolladores y empresas que necesitan certeza antes de comprometer capital.</p>
+        </div>
       </div>
-      <div>
-        <h2 class="cat-title">Desarrollo inmobiliario</h2>
-        <p class="cat-desc">Análisis técnico especializado para proyectos inmobiliarios en etapa de planeación o ejecución. Respaldo profesional para inversionistas, desarrolladores y empresas que necesitan certeza antes de comprometer capital.</p>
-      </div>
+      <figure class="cat-foto">
+        <img src="assets/fotos/desarrollo.jpg" width="800" height="600" loading="lazy" decoding="async"
+             alt="Tres profesionales con casco conversan sobre un lecho de varilla de acero en la obra de un desarrollo en construcción.">
+        <figcaption>Visita de obra en un desarrollo en construcción.</figcaption>
+      </figure>
     </div>
     <div class="services-grid">
 

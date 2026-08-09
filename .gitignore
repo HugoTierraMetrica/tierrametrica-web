@@ -8,3 +8,11 @@ desktop.ini
 
 # Carpeta de trabajo del CLI de Netlify
 .netlify/
+
+# Fotos de campo: el repositorio es público, así que los originales se
+# quedan en la máquina. Sólo se versionan las copias recortadas a 4:3 y
+# optimizadas que el sitio realmente sirve.
+assets/fotos/*
+!assets/fotos/valuacion.jpg
+!assets/fotos/inversion.jpg
+!assets/fotos/desarrollo.jpg
