@@ -20,6 +20,101 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+
+<!-- Definición completa de la persona. La portada y los artículos la
+     referencian por su @id en lugar de repetirla. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tierrametrica.com/nosotros.html#hugo",
+      "name": "Hugo A. Landeros Escamilla",
+      "givenName": "Hugo",
+      "familyName": "Landeros Escamilla",
+      "jobTitle": "Ingeniero Civil y Maestro en Valuación",
+      "description": "Ingeniero Civil y Maestro en Valuación. Fundador de Tierra Métrica. Ha evaluado más de 30 desarrollos inmobiliarios en distintas ciudades de México como auditor de proyectos.",
+      "url": "https://tierrametrica.com/nosotros.html",
+      "image": "https://tierrametrica.com/assets/hugo-landeros.jpg",
+      "email": "hugo@tierrametrica.com",
+      "telephone": "+52 33 3028 4101",
+      "worksFor": { "@id": "https://tierrametrica.com/#negocio" },
+      "sameAs": [ "https://www.linkedin.com/in/hugolanderos/" ],
+      "homeLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Guadalajara",
+          "addressRegion": "Jalisco",
+          "addressCountry": "MX"
+        }
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad de Guadalajara",
+          "sameAs": "https://www.udg.mx/"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Tecnológico de Monterrey",
+          "sameAs": "https://tec.mx/"
+        }
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Maestría",
+          "name": "Maestría en Valuación",
+          "educationalLevel": "Posgrado",
+          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Universidad de Guadalajara" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Licenciatura",
+          "name": "Ingeniero Civil",
+          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Tecnológico de Monterrey" }
+        }
+      ],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Colegio e Instituto de Valuadores de Jalisco, A.C.",
+        "alternateName": "CIVAJAL",
+        "description": "Colegio acreditado ante la Dirección de Profesiones del Estado de Jalisco."
+      },
+      "knowsAbout": [
+        "Valuación inmobiliaria",
+        "Avalúo comercial",
+        "Due diligence inmobiliario",
+        "Estudios de factibilidad inmobiliaria",
+        "Auditoría de obra",
+        "Mercado inmobiliario de Jalisco"
+      ],
+      "knowsLanguage": { "@type": "Language", "name": "Español", "alternateName": "es-MX" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://tierrametrica.com/nosotros.html#pagina",
+      "url": "https://tierrametrica.com/nosotros.html",
+      "name": "Quién está detrás — Tierra Métrica",
+      "mainEntity": { "@id": "https://tierrametrica.com/nosotros.html#hugo" },
+      "isPartOf": { "@id": "https://tierrametrica.com/#sitio" },
+      "inLanguage": "es-MX",
+      "breadcrumb": { "@id": "https://tierrametrica.com/nosotros.html#ruta" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tierrametrica.com/nosotros.html#ruta",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tierrametrica.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Quién está detrás" }
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
   .page-hero { background: var(--indigo-dark); padding: 56px 5% 56px; }
   .page-hero-inner { max-width: var(--maxw); margin: 0 auto; }

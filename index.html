@@ -21,6 +21,124 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 <script>document.documentElement.classList.add('js');</script>
+
+<!-- Datos estructurados. Los @id son estables y los referencian las demás
+     páginas, de modo que el negocio y la persona se declaran una sola vez. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://tierrametrica.com/#negocio",
+      "name": "Tierra Métrica",
+      "alternateName": "Tierra Métrica · Valuación Inmobiliaria",
+      "url": "https://tierrametrica.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tierrametrica.com/assets/logo-mark.png",
+        "width": 187,
+        "height": 136
+      },
+      "image": "https://tierrametrica.com/assets/share/home.png",
+      "description": "Consultoría de valuación inmobiliaria independiente en Jalisco. Avalúos, análisis de inversión y estudios de factibilidad para propietarios, compradores, inversionistas y desarrolladores, sin comisión sobre la transacción.",
+      "slogan": "Conoce el valor real de tu patrimonio inmobiliario",
+      "email": "hugo@tierrametrica.com",
+      "telephone": "+52 33 3028 4101",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Guadalajara",
+        "addressRegion": "Jalisco",
+        "addressCountry": "MX"
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Jalisco" },
+        { "@type": "City", "name": "Guadalajara" },
+        { "@type": "City", "name": "Zapopan" },
+        { "@type": "City", "name": "Puerto Vallarta" }
+      ],
+      "founder": { "@id": "https://tierrametrica.com/nosotros.html#hugo" },
+      "sameAs": [
+        "https://www.linkedin.com/company/tierra-metrica/",
+        "https://www.instagram.com/tierrametrica/",
+        "https://www.facebook.com/tierrametrica"
+      ],
+      "knowsAbout": [
+        "Valuación inmobiliaria",
+        "Avalúo comercial",
+        "Avalúo residencial",
+        "Avalúo de inmuebles industriales",
+        "Avalúo de terrenos",
+        "Opinión de valor",
+        "Due diligence inmobiliario",
+        "Análisis de mayor y mejor uso",
+        "Estudio de factibilidad de proyecto inmobiliario",
+        "Auditoría de obra",
+        "Mercado inmobiliario de Jalisco"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de valuación y consultoría inmobiliaria",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Valuación",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Avalúo residencial" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Avalúo comercial" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Avalúo de inmuebles industriales" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Avalúo de terrenos" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Opinión de valor" } }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Inversión",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Due diligence inmobiliario para adquisición" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Análisis de mayor y mejor uso" } }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Desarrollo inmobiliario",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Estudio de factibilidad de proyecto inmobiliario" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Auditoría de obra" } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://tierrametrica.com/nosotros.html#hugo",
+      "name": "Hugo A. Landeros Escamilla",
+      "jobTitle": "Ingeniero Civil y Maestro en Valuación",
+      "url": "https://tierrametrica.com/nosotros.html",
+      "worksFor": { "@id": "https://tierrametrica.com/#negocio" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tierrametrica.com/#sitio",
+      "url": "https://tierrametrica.com/",
+      "name": "Tierra Métrica",
+      "description": "Valuación y consultoría inmobiliaria independiente en Jalisco.",
+      "inLanguage": "es-MX",
+      "publisher": { "@id": "https://tierrametrica.com/#negocio" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://tierrametrica.com/#pagina",
+      "url": "https://tierrametrica.com/",
+      "name": "Tierra Métrica — Valuación Inmobiliaria en Jalisco",
+      "isPartOf": { "@id": "https://tierrametrica.com/#sitio" },
+      "about": { "@id": "https://tierrametrica.com/#negocio" },
+      "inLanguage": "es-MX"
+    }
+  ]
+}
+</script>
 <style>
   /* ── HERO ── */
   .hero {

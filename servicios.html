@@ -20,6 +20,187 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+
+<!-- Los nueve servicios y, aparte, las mismas preguntas del cliente en
+     formato FAQ. Las respuestas son literalmente el texto visible de cada
+     ficha: si una cambia en la página, hay que cambiarla aquí también. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://tierrametrica.com/servicios.html#pagina",
+      "url": "https://tierrametrica.com/servicios.html",
+      "name": "Servicios de valuación y consultoría inmobiliaria",
+      "isPartOf": { "@id": "https://tierrametrica.com/#sitio" },
+      "about": { "@id": "https://tierrametrica.com/#negocio" },
+      "inLanguage": "es-MX",
+      "breadcrumb": { "@id": "https://tierrametrica.com/servicios.html#ruta" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tierrametrica.com/servicios.html#ruta",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tierrametrica.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Servicios" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Avalúo residencial",
+      "serviceType": "Valuación inmobiliaria",
+      "description": "Determinación del valor de mercado de un inmueble mediante análisis comparativo de la zona, inspección física y aplicación de enfoques técnicos reconocidos.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "Service",
+      "name": "Avalúo comercial",
+      "serviceType": "Valuación inmobiliaria",
+      "description": "Determinación del valor de mercado a partir de la renta que el inmueble puede generar. El enfoque de capitalización lleva el peso del análisis, sobre comparables del mercado comercial de la zona.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "Service",
+      "name": "Avalúo de inmuebles industriales",
+      "serviceType": "Valuación inmobiliaria",
+      "description": "Determinación del valor de reposición de terreno, nave e instalaciones fijas, conforme a las Normas Internacionales de Valuación (IVS), sobre comparables del mercado industrial regional.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "Service",
+      "name": "Avalúo de terrenos",
+      "serviceType": "Valuación inmobiliaria",
+      "description": "Determinación del valor de mercado del suelo a partir de comparables de la zona, considerando superficie, frente, topografía y servicios, junto con el potencial constructivo del uso de suelo vigente.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "Service",
+      "name": "Opinión de valor",
+      "serviceType": "Valuación inmobiliaria",
+      "description": "Estimación técnica del valor de mercado basada en análisis de mercado y experiencia profesional, sin el rigor formal de un avalúo certificado.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "Service",
+      "name": "Due diligence inmobiliario para adquisición",
+      "serviceType": "Consultoría inmobiliaria",
+      "description": "Dictamen técnico de valor del inmueble. Análisis de la construcción o preventa, revisión documental, estudio de la zona y su plusvalía, identificación de riesgos y recomendación para la negociación.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "Service",
+      "name": "Análisis de mayor y mejor uso",
+      "serviceType": "Consultoría inmobiliaria",
+      "description": "Análisis del uso de suelo y de su potencial, identificación de las alternativas técnicamente posibles, evaluación financiera de cada una y recomendación final justificada técnica y financieramente.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "Service",
+      "name": "Estudio de factibilidad de proyecto inmobiliario",
+      "serviceType": "Consultoría de desarrollo inmobiliario",
+      "description": "Análisis integral que evalúa la viabilidad técnica, de mercado y financiera de un proyecto inmobiliario. Incluye estudio de mercado, análisis del producto propuesto, proyección de absorción, estimación de ingresos y evaluación de rentabilidad por medio de flujo de efectivo.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "Service",
+      "name": "Auditoría de obra",
+      "serviceType": "Consultoría de desarrollo inmobiliario",
+      "description": "Revisión técnica independiente del avance físico de una obra respecto al programa y presupuesto establecidos. Verifica que los recursos invertidos correspondan al avance real, detecta desviaciones y emite recomendaciones.",
+      "provider": { "@id": "https://tierrametrica.com/#negocio" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Jalisco" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tierrametrica.com/servicios.html#faq",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto vale realmente mi vivienda en el mercado de hoy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Determinación del valor de mercado de un inmueble mediante análisis comparativo de la zona, inspección física y aplicación de enfoques técnicos reconocidos. Es el avalúo residencial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto vale realmente este inmueble comercial, oficina o mixto, con un análisis que pueda usar para negociar, invertir o tomar una decisión patrimonial seria?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Determinación del valor de mercado a partir de la renta que el inmueble puede generar. El enfoque de capitalización lleva el peso del análisis, sobre comparables del mercado comercial de la zona. Es el avalúo comercial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo conozco el valor real de mi planta o nave industrial para financiamiento, garantías o fines contables?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con un avalúo de inmuebles industriales: determinación del valor de reposición de terreno, nave e instalaciones fijas, conforme a las Normas Internacionales de Valuación (IVS), sobre comparables del mercado industrial regional. Es el análisis que aceptan auditores, aseguradoras o socios."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto vale este terreno en el mercado de hoy, de acuerdo a la zona, al uso de suelo y lo que se puede construir en él?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Determinación del valor de mercado del suelo a partir de comparables de la zona, considerando superficie, frente, topografía y servicios, junto con el potencial constructivo del uso de suelo vigente. Es el avalúo de terrenos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo obtengo una referencia profesional rápida del valor antes de decidir si avanzo con un avalúo formal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con una opinión de valor: estimación técnica del valor de mercado basada en análisis de mercado y experiencia profesional, sin el rigor formal de un avalúo certificado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Voy a comprar un inmueble. Antes de firmar, ¿cómo sé si el precio es correcto, la documentación está completa y si hay riesgos técnicos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con un due diligence inmobiliario para adquisición: dictamen técnico de valor del inmueble, análisis de la construcción o preventa, revisión documental, estudio de la zona y su plusvalía, identificación de riesgos y recomendación para la negociación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Tengo un terreno o una propiedad subutilizada. ¿Qué me conviene más hacer con él: venderlo, desarrollarlo, rentarlo o esperar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lo resuelve un análisis de mayor y mejor uso: análisis del uso de suelo y de su potencial, identificación de las alternativas técnicamente posibles, evaluación financiera de cada una y recomendación final justificada técnica y financieramente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Tengo un terreno y una idea de proyecto. ¿Es viable? ¿A qué precio puedo vender, en cuánto tiempo se absorbe y qué rentabilidad deja?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lo responde un estudio de factibilidad de proyecto inmobiliario: análisis integral de la viabilidad técnica, de mercado y financiera. Incluye estudio de mercado, análisis del producto propuesto, proyección de absorción, estimación de ingresos y evaluación de rentabilidad por medio de flujo de efectivo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Estoy aportando capital a una obra. ¿El avance físico real corresponde a lo que ya pagué y al programa que firmamos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lo verifica una auditoría de obra: revisión técnica independiente del avance físico respecto al programa y presupuesto establecidos. Comprueba que los recursos invertidos correspondan al avance real, detecta desviaciones y emite recomendaciones."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
   /* ── HERO INTERIOR ── */
   .page-hero { background: var(--indigo-dark); padding: 64px 5% 60px; }
@@ -370,6 +551,7 @@
       <div class="svc-card">
         <span class="svc-tag tag-desarrollo">Desarrollo</span>
         <p class="svc-name">Estudio de factibilidad de proyecto inmobiliario</p>
+        <p class="svc-pregunta">«Tengo un terreno y una idea de proyecto. ¿Es viable? ¿A qué precio puedo vender, en cuánto tiempo se absorbe y qué rentabilidad deja?»</p>
         <p class="svc-desc">Análisis integral que evalúa la viabilidad técnica, de mercado y financiera de un proyecto inmobiliario. Incluye estudio de mercado, análisis del producto propuesto, proyección de absorción, estimación de ingresos y evaluación de rentabilidad por medio de flujo de efectivo.</p>
         <p class="svc-for"><strong>Ideal para</strong>inversionistas que evalúan adquirir un terreno para desarrollar, desarrolladores en etapa de planeación, socios que buscan validar un proyecto ante un banco o fondo.</p>
       </div>
@@ -377,6 +559,7 @@
       <div class="svc-card">
         <span class="svc-tag tag-desarrollo">Desarrollo</span>
         <p class="svc-name">Auditoría de obra</p>
+        <p class="svc-pregunta">«Estoy aportando capital a esta obra. ¿El avance físico real corresponde a lo que ya pagué y al programa que firmamos?»</p>
         <p class="svc-desc">Revisión técnica independiente del avance físico de una obra respecto al programa y presupuesto establecidos. Verifica que los recursos invertidos correspondan al avance real, detecta desviaciones y emite recomendaciones. Esencial para inversionistas que financian proyectos de terceros.</p>
         <p class="svc-for"><strong>Ideal para</strong>inversionistas privados, instituciones financieras, fondos o socios que aportan capital a un desarrollo y necesitan verificar independientemente el avance de obra.</p>
       </div>
