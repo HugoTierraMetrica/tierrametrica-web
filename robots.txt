@@ -1,0 +1,28 @@
+# Tierra Métrica — Valuación Inmobiliaria
+# https://tierrametrica.com
+
+# ── Buscadores y cualquier otro rastreador ──
+User-agent: *
+Allow: /
+Disallow: /publicar.html
+Disallow: /gracias.html
+
+# ── Rastreadores de modelos de lenguaje ──
+# Se les permite de forma explícita: los análisis del blog citan fuentes
+# públicas y están pensados para poder ser citados a su vez.
+# Las mismas exclusiones aplican, porque un grupo con agente propio
+# reemplaza al grupo "*" en lugar de sumarse a él.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: CCBot
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /publicar.html
+Disallow: /gracias.html
+
+Sitemap: https://tierrametrica.com/sitemap.xml
