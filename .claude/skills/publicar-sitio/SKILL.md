@@ -6,8 +6,10 @@ description: Publica en Netlify los cambios acumulados del sitio de Tierra Métr
 # Publicar el sitio de Tierra Métrica
 
 Este sitio se despliega por **push a `main`**: GitHub `HugoTierraMetrica/tierrametrica-web`
-está enlazado a Netlify con despliegue continuo. No hay CLI de Netlify, ni `gh`,
-ni Node, ni Python en este entorno — el push *es* el despliegue.
+está enlazado a Netlify con despliegue continuo. No hay CLI de Netlify ni `gh`
+en este entorno — el push *es* el despliegue. Node y Python sí están
+disponibles (desde 2026-08-18), pero no intervienen aquí: el sitio no tiene
+build y Netlify se dispara solo con el push.
 
 Invocar este skill cuenta como la autorización para publicar. No hace falta
 volver a preguntar si se sube o no. Lo que sí se detiene sin excepción es un
