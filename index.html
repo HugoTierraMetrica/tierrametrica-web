@@ -184,18 +184,19 @@
   .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
   /* ── Foto del hero ──
-     Mismo tratamiento que .cat-foto en servicios.html (3:2, radio grande,
+     Mismo tratamiento que .cat-foto en servicios.html (radio grande,
      sombra), con la sombra oscurecida porque aquí el fondo es índigo.
-     El recorte a 3:2 se hace en el archivo. */
+     Es cuadrada y no 3:2: así las tres torres caben completas y
+     centradas. El recorte se hace en el archivo. */
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
     gap: 56px; align-items: center;
   }
   .hero-foto { margin: 0; }
   .hero-foto img {
     display: block; width: 100%; height: auto;
-    aspect-ratio: 3 / 2; object-fit: cover;
+    aspect-ratio: 1 / 1; object-fit: cover;
     border-radius: var(--radius-lg);
     box-shadow: 0 18px 44px rgba(0,0,0,0.30);
   }
@@ -457,7 +458,7 @@
      la pantalla y siempre entran completas. */
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .hero-foto { max-width: 460px; }
+    .hero-foto { max-width: 400px; }
   }
   @media (max-width: 640px) {
     .hero-h1 { font-size: clamp(25px, 7.4vw, 34px); }
@@ -519,7 +520,7 @@
     </div>
     </div>
     <figure class="hero-foto">
-      <img src="assets/fotos/inicio.jpg" width="685" height="457" fetchpriority="high" decoding="async"
+      <img src="assets/fotos/inicio.jpg" width="480" height="480" fetchpriority="high" decoding="async"
            alt="Torres de usos mixtos en Guadalajara, Jalisco, rodeadas de edificios de menor altura y arbolado urbano bajo un cielo despejado.">
     </figure>
   </div>
