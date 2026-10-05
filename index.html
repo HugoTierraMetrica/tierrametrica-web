@@ -183,6 +183,23 @@
   }
   .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
+  /* ── Foto del hero ──
+     Mismo tratamiento que .cat-foto en servicios.html (3:2, radio grande,
+     sombra), con la sombra oscurecida porque aquí el fondo es índigo.
+     El recorte a 3:2 se hace en el archivo. */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+    gap: 56px; align-items: center;
+  }
+  .hero-foto { margin: 0; }
+  .hero-foto img {
+    display: block; width: 100%; height: auto;
+    aspect-ratio: 3 / 2; object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.30);
+  }
+
   /* ══ ANÁLISIS ══ */
   .analisis {
     padding: 72px 5% 76px;
@@ -438,6 +455,10 @@
      contra 338px disponibles), así que "tu" quedaba solo en un renglón.
      Al escalar con vw, la frase y la palabra que rota crecen a la par que
      la pantalla y siempre entran completas. */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-foto { max-width: 460px; }
+  }
   @media (max-width: 640px) {
     .hero-h1 { font-size: clamp(25px, 7.4vw, 34px); }
     .hero-sub { font-size: 15px; }
@@ -486,7 +507,8 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
+  <div class="hero-inner hero-grid">
+    <div>
     <h1 class="hero-h1">Conoce el valor <em>real</em> de tu<br>
       <span class="rotador" id="rotador">inmueble</span>
     </h1>
@@ -495,6 +517,11 @@
       <a href="https://wa.me/523330284101?text=Hola%2C%20me%20interesa%20un%20aval%C3%BAo%20de%20mi%20inmueble." class="btn-primary">Solicitar avalúo</a>
       <a href="servicios.html" class="btn-outline">Ver servicios</a>
     </div>
+    </div>
+    <figure class="hero-foto">
+      <img src="assets/fotos/inicio.jpg" width="685" height="457" fetchpriority="high" decoding="async"
+           alt="Vista aérea de una ciudad con torres de oficinas y vivienda vertical en primer plano, barrios residenciales hacia el horizonte y la costa a la derecha.">
+    </figure>
   </div>
 </section>
 
